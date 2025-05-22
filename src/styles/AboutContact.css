@@ -1,0 +1,52 @@
+.about-contact-wrapper {
+  background-color: #fff;
+  color: #333;
+  margin-top: 50px;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: justify;
+}
+
+.contact-section {
+  background-color: #f9f9f9;
+}
+
+.contact-title {
+  font-weight: 600;
+  color: #191970;
+  border-bottom: 2px solid #191970;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.contact-info {
+  color: #555;
+}
+
+.social-icons a {
+  font-size: 1.5rem;
+  color: #191970;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: #0056b3;
+}
+
+.footer-section {
+  font-size: 0.95rem;
+}
+
+.footer-section h5,
+.footer-section h6 {
+  font-weight: 600;
+}
+
+.footer-bottom {
+  font-size: 0.85rem;
+}

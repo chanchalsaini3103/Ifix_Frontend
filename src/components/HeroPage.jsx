@@ -2,57 +2,12 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/HeroPage.css";
 import ImageSlider from "./ImageSlider";
+import Navbar from "./Navbar";
 
 function HeroPage() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-white shadow-sm fixed-top">
-        <div className="container-fluid d-flex justify-content-between align-items-center">
-          {/* Left: Logo + Brand Name */}
-          <div className="d-flex align-items-center">
-            <img
-              src="/images/logo.png"
-              alt="Logo"
-              height="80"
-              className="me-2"
-            />
-            <div className="text-dark"></div>
-          </div>
-
-          {/* Center: Navigation Links */}
-          <div className="d-none d-lg-flex justify-content-center flex-grow-1">
-            <ul className="navbar-nav custom-nav-links">
-              <li className="nav-item mx-2">
-                <a className="nav-link" href="/">
-                  Home
-                </a>
-              </li>
-              <li className="nav-item mx-2">
-                <a className="nav-link" href="/services">
-                  Services
-                </a>
-              </li>
-              <li className="nav-item mx-2">
-                <a className="nav-link" href="/request">
-                  Request Repair
-                </a>
-              </li>
-              <li className="nav-item mx-2">
-                <a className="nav-link" href="/contact">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Right: Login Button */}
-          <div>
-            <a href="/admin" className="login-nav-btn">
-              Login
-            </a>
-          </div>
-        </div>
-      </nav>
+     <Navbar />
 
       <div className="pt-5">
         <ImageSlider />
@@ -68,7 +23,7 @@ function HeroPage() {
             <h5>BOOK REPAIR SERVICE</h5>
             <p>
               Select your device and book repair service as per your
-              requirement. Call our executive at 8999523339 for any assistance
+              requirement. Call our executive at 8888668186 for any assistance
               in placing the order.
             </p>
           </div>
@@ -92,7 +47,7 @@ function HeroPage() {
             <div className="icon-circle">📦</div>
             <h5>FREE & FAST RETURN</h5>
             <p>
-              Your repaired device will be delivered to you in just 48–72 hours
+              Your repaired device will be delivered to you in just a day
               subject to the location and repair type.
             </p>
           </div>
@@ -172,7 +127,7 @@ function HeroPage() {
       <div className="chat-cta-section text-center py-5">
         <h4>Need help? Chat with us now</h4>
         <a
-          href="https://wa.me/8999523339"
+          href="https://wa.me/8888668186"
           target="_blank"
           rel="noopener noreferrer"
           className="btn btn-success mt-2"
@@ -278,7 +233,7 @@ function HeroPage() {
             <div className="col-md-4 mb-3">
               <h6>Contact Us</h6>
               <p className="mb-1">📍 Pimpri, Pune, Maharashtra</p>
-              <p className="mb-1">📞 +91 8999523339</p>
+              <p className="mb-1">📞 +91 8888668186</p>
               <p className="mb-1">✉️ support@ifixmobiles.in</p>
               <a
                 href="https://maps.app.goo.gl/XRLjtocjKB6tcox1A"

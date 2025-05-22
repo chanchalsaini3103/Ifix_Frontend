@@ -1,0 +1,9 @@
+.request-form {
+  max-width: 800px;
+  margin: auto;
+}
+
+.request-form label {
+  font-weight: 500;
+  margin-bottom: 4px;
+}

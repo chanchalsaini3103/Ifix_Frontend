@@ -1,0 +1,52 @@
+.section-title {
+    margin-top: 20px;
+    margin-bottom: 0px;
+  font-weight: 700;
+  color: black;
+}
+
+
+.brand-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.brand-card {
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.brand-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  border-color: #191970;
+}
+
+.cta-banner-container {
+  display: flex;
+  justify-content: center;
+}
+
+.cta-banner-inner {
+  max-width: 1140px;
+  width: 100%;
+  background-color: #000;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.btn-pink {
+  background-color: lightblue;
+  color: #fff;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-pink:hover {
+  background-color: lightskyblue;
+}
+.footer-bottom{
+    margin-bottom: 0%;
+    padding: 0%;
+}
