@@ -1,4 +1,4 @@
-/* Slide down effect
+/* Slide down effect */
 .slide-down {
   animation: slideDown 0.6s ease-out forwards;
 }
@@ -12,9 +12,9 @@
     transform: translateY(0);
     opacity: 1;
   }
-} */
+}
 /* Optional for animation */
-.slide-down {
+/* .slide-down {
   animation: slideDown 0.5s ease-in-out forwards;
 }
 
@@ -25,12 +25,12 @@
   to {
     transform: translateY(0);
   }
+} */
+/* Make toggle icon white */
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
-/* Ensure toggle icon visible on dark navbar */
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' ...");
-}
 
 /* Underline effect on hover */
 .custom-nav-links .nav-link {
