@@ -1,4 +1,4 @@
-/* Slide down effect */
+/* Slide down effect
 .slide-down {
   animation: slideDown 0.6s ease-out forwards;
 }
@@ -12,6 +12,24 @@
     transform: translateY(0);
     opacity: 1;
   }
+} */
+/* Optional for animation */
+.slide-down {
+  animation: slideDown 0.5s ease-in-out forwards;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Ensure toggle icon visible on dark navbar */
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' ...");
 }
 
 /* Underline effect on hover */
@@ -55,22 +73,4 @@
   display: inline-block;
   margin: 0;
   padding: 0;
-}
-/* Optional for animation */
-.slide-down {
-  animation: slideDown 0.5s ease-in-out forwards;
-}
-
-@keyframes slideDown {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-
-/* Ensure toggle icon visible on dark navbar */
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' ...");
 }
