@@ -29,15 +29,16 @@ function Navbar() {
 
         {/* Toggle Button */}
         <button
-          className="navbar-toggler text-white border-white"
-          type="button"
-          onClick={() => setIsCollapsed(!isCollapsed)}
-          aria-controls="navbarNav"
-          aria-expanded={!isCollapsed}
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon" style={{ filter: 'invert(1)' }}></span>
-        </button>
+  className="navbar-toggler text-white border-white"
+  type="button"
+  onClick={() => setIsCollapsed(!isCollapsed)}
+  aria-controls="navbarNav"
+  aria-expanded={!isCollapsed}
+  aria-label="Toggle navigation"
+>
+  <span className="navbar-toggler-icon"></span>
+</button>
+
 
         {/* Collapsible Nav Items */}
         <div className={`collapse navbar-collapse ${!isCollapsed ? 'show' : ''}`} id="navbarNav">
