@@ -40,7 +40,13 @@ function Navbar() {
             </li>
             <li className="nav-item mx-2">
               <Link className="nav-link text-white" to="/request">Request Repair</Link>
+
+
             </li>
+            <Link to="/my-requests" className="btn btn-outline-light ms-3">
+  My Requests
+</Link>
+
             <li className="nav-item mx-2">
               <Link className="nav-link text-white" to="/contact">Contact</Link>
             </li>

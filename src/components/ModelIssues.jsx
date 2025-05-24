@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import Navbar from "./Navbar";
 
 
 const issues = [
@@ -21,6 +22,9 @@ function ModelIssues() {
   };
 
   return (
+    <>
+    <Navbar />
+    
     <div className="container py-5">
       <h3 className="text-center mb-4">Select the issue type</h3>
       <div className="row justify-content-center">
@@ -33,7 +37,7 @@ function ModelIssues() {
           >
             <div className="card p-3 text-center shadow-sm">
               <img
-                src={`/images/issues/${item.icon}`}
+                src={`/images/${item.icon}`}
                 alt={item.name}
                 className="img-fluid mb-2"
               />
@@ -43,6 +47,15 @@ function ModelIssues() {
         ))}
       </div>
     </div>
+    <div className="cta-banner d-flex justify-content-between align-items-center px-4 py-4">
+      <h4 className="text-white fw-bold mb-0">
+        If You Did Not Found Your Phone Or Issue Just Give Us A Call
+      </h4>
+      <button className="btn btn-pink" onClick={() => navigate("/contact")}>
+        Contact Us
+      </button>
+    </div>
+    </>
   );
 }
 

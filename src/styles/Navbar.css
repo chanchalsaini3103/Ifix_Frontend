@@ -41,17 +41,19 @@
   transition: 0.3s ease;
 }
 
-
 .footer {
   background-color: #111;
   color: #fff;
-  padding: 15px 0;
+  padding: 8px 0; /* reduced from 15px to 8px */
   text-align: center;
-  font-size: 14px;
+  font-size: 13px;
   width: 100%;
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+  line-height: 1.4;
 }
 
 .footer small {
-  display: block;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
 }

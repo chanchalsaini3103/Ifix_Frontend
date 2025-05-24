@@ -1,0 +1,25 @@
+.card {
+  border-radius: 12px;
+  border: none;
+}
+
+.card h3 {
+  font-weight: 600;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+}
+
+.table th {
+  white-space: nowrap;
+}
+
+.table td {
+  font-size: 14px;
+}
+
+.table thead th {
+  background-color: #222;
+  color: #fff;
+}

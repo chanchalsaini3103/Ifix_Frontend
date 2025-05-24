@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/RequestRepair.css";
 import axios from "axios";
 import Swal from "sweetalert2"; // ✅ import
+import Navbar from "./Navbar";
 
 function RequestRepair() {
   const [userId, setUserId] = useState("");
@@ -55,6 +56,8 @@ function RequestRepair() {
   };
 
   return (
+    <>
+    <Navbar />
     <div className="request-page py-5 mt-5">
       <h2 className="text-center mb-3">Request a Mobile Repair</h2>
       <p className="text-center text-muted">
@@ -115,6 +118,7 @@ function RequestRepair() {
         </div>
       </form>
     </div>
+    </>
   );
 }
 

@@ -11,6 +11,7 @@ import ModelIssues from './components/ModelIssues';
 import OrderDetails from './components/OrderDetails';
 import AdminDashboard from './components/AdminDashboard';
 import Footer from './components/Footer';
+import MyRepairRequests from './components/MyRepairRequests';
 
 
 function BrandPage() {
@@ -37,6 +38,7 @@ function App() {
             <Route path="/brands/:brandName" element={<BrandPage />} />
             <Route path="/brands/:brand/:model" element={<ModelIssues />} />
             <Route path="/order-details" element={<OrderDetails />} />
+            <Route path="/my-requests" element={<MyRepairRequests />} />
           </Routes>
         </main>
         <Footer />

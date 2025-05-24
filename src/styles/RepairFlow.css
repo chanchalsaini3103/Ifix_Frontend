@@ -121,3 +121,25 @@
 
 
 
+.cta-banner {
+  background-color: #000;
+  border-radius: 4px;
+  margin: 40px auto;
+  max-width: 85%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-pink {
+  background-color: black;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+.btn-pink:hover {
+  background-color: grey ;
+  color: white;
+}

@@ -1,4 +1,3 @@
-import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/HeroPage.css";
 import ImageSlider from "./ImageSlider";
@@ -13,7 +12,7 @@ function HeroPage() {
         <ImageSlider />
       </div>
 
-      {/* How It Works Section */}
+      
       <div className="how-it-works-container">
         <h2 className="text-center">How It Works</h2>
         <div className="underline mx-auto"></div>
