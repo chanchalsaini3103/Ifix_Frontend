@@ -1,0 +1,123 @@
+/* General Section Titles */
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  text-align: center;
+  /* margin-top:50px; */
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #007bff;
+  margin: 8px auto 0;
+  border-radius: 3px;
+}
+
+/* Brand Cards on /services */
+.brand-card {
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.brand-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid #007bff;
+}
+
+.brand-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+/* CTA Banner Styling */
+.cta-banner-container {
+  display: flex;
+  justify-content: center;
+}
+
+.cta-banner-inner {
+  max-width: 1140px;
+  width: 100%;
+  background-color: #000;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.btn-pink {
+  background-color: lightblue;
+  color: #fff;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-pink:hover {
+  background-color: lightskyblue;
+}
+
+.container{
+  margin-top: 50px;
+}
+
+/* Footer */
+.footer-bottom {
+  margin-bottom: 0;
+  padding: 15px 0;
+  background-color: black;
+  color: white;
+}
+
+.portrait-card {
+
+  width: 100%;
+  height: 270px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+}
+
+.portrait-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.portrait-img {
+  max-height: 140px;
+  object-fit: contain;
+}
+
+.model-label {
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+/* Issue Cards */
+.card {
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  background-color: #f0f8ff;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Padding */
+.container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+
+
+
+

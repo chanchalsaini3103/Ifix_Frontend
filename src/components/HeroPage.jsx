@@ -159,41 +159,47 @@ function HeroPage() {
       </div>
       
       {/* Service Area Map */}
-      <div className="map-section py-5 text-center">
-        <h2>Locate Us</h2>
-        <div className="underline mx-auto mb-3"></div>
-        <p>Click on the map below to open in Google Maps</p>
+    <div className="map-section py-5 text-center">
+  <h2 className="section-title">Locate Us</h2>
+  
+  <p>Click on the map below to open in Google Maps</p>
 
-        <div className="map-container mt-3">
-          <a
-            href="https://maps.app.goo.gl/XRLjtocjKB6tcox1A"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <iframe
-              title="iFix Mobile Repair Pimpri"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1892.3172623320376!2d73.80161859107994!3d18.62136404262055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b99da3800001%3A0xe4f8a723732bac72!2siFix%20Mobile%20Repair!5e0!3m2!1sen!2sin!4v1716374136003!5m2!1sen!2sin"
-              width="90%"
-              height="350"
-              style={{ border: "0", borderRadius: "10px" }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </a>
-        </div>
-      </div>
+  <div className="map-wrapper mt-4">
+    <a
+      href="https://www.google.com/maps/place/18%C2%B037'12.9%22N+73%C2%B048'15.1%22E"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <iframe
+        title="iFix Mobile Repair Pimpri"
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d945.5920210223957!2d73.804184!3d18.6202469!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDM3JzEyLjkiTiA3M8KwNDgnMTUuMSJF!5e0!3m2!1sen!2sin!4v1716536477903!5m2!1sen!2sin"
+        width="100%"
+        height="450"
+        allowFullScreen=""
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        style={{
+          border: "0",
+          borderRadius: "15px",
+          boxShadow: "0 4px 16px rgba(0,0,0,0.1)",
+        }}
+      ></iframe>
+    </a>
+  </div>
+</div>
+
+
       {/* Footer */}
       <footer className="footer-section text-white bg-dark pt-4">
         <div className="container text-center text-md-start">
           <div className="row">
             {/* About */}
             <div className="col-md-4 mb-3">
-              <h5>iFix Mobile Repair</h5>
-              <p>
-                Fast, reliable, and professional mobile repair services at your
-                doorstep. Serving over 18,000 pin codes across India.
-              </p>
+              <h5>iFix Mobile Repair - Pimpri</h5>
+<p>
+  Trusted mobile repair shop in Pimpri offering fast, reliable, and affordable services for all major brands. Visit our store for screen replacement, battery issues, water damage, and more. Walk-ins welcome — no appointment needed!
+</p>
+
             </div>
 
             {/* Quick Links */}
@@ -247,9 +253,7 @@ function HeroPage() {
           </div>
         </div>
 
-        <div className="footer-bottom text-center py-3 bg-secondary mt-4">
-          © {new Date().getFullYear()} iFix Mobile Repair. All rights reserved.
-        </div>
+       
       </footer>
     </>
   );

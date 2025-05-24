@@ -1,0 +1,30 @@
+.order-card {
+  max-width: 600px;
+
+}
+.containerorder{
+    margin-top: 100px;
+    padding-top: 50px;
+}
+
+.btn-pink {
+  background-color: black;
+  color: #fff;
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-pink:hover {
+  background-color: grey;
+}
+
+.form-control {
+  border-radius: 8px;
+  padding: 10px 15px;
+}
+
+.form-control::placeholder,
+textarea::placeholder {
+  font-family: 'Segoe UI', sans-serif;
+  color: #888;
+}

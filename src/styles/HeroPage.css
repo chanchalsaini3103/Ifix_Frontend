@@ -83,13 +83,14 @@
 .carousel-indicators [data-bs-target] {
   width: 10px;
   height: 10px;
+  
   border-radius: 50%;
   background-color: gray;
   margin: 0 5px;
 }
 
 .carousel-indicators .active {
-  background-color: blue;
+  background-color: black;
 }
 
 .carousel-image {
@@ -110,11 +111,13 @@
 }
 
 .underline {
-  width: 60px;
-  height: 3px;
-  background-color: #00008b;
+  width: 80px;
+  height: 4px;
+  background: #007bff;
   margin: 10px auto 30px;
+  border-radius: 5px;
 }
+
 
 .steps-container {
   display: flex;
@@ -262,29 +265,25 @@
 .testimonial-card small {
   color: #777;
 }
-.service-areas-section {
-  background-color: #f9f9f9;
-}
-.service-areas-section p {
-  font-size: 1rem;
-  color: #444;
-}
-.service-map {
-  max-width: 90%;
-  height: auto;
-  margin-top: 20px;
-  border-radius: 10px;
-}
-.map-container {
-  display: flex;
-  justify-content: center;
+
+.map-section {
+  background-color: #ffffff;
 }
 
-.map-section iframe {
-  max-width: 100%;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #222;
 }
+
+.map-wrapper {
+  width: 95%;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
 .footer-section {
   font-size: 0.95rem;
 }

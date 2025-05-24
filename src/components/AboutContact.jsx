@@ -1,11 +1,15 @@
 import React from "react";
 import "../styles/AboutContact.css";
+import Navbar from "./Navbar";
 
 function AboutContact() {
   return (
+    <>
+    
+    <Navbar />
     <div className="about-contact-wrapper py-5">
-      {/* About Us Section */}
-      <div className="container mb-5">
+  
+      <div className="containerabout mb-5">
         <h2 className="text-center mb-4">About Us</h2>
         <p className="about-text">
           iFix Mobile Repair marked its presence in 2020 as a service center in Pimpri, Pune,
@@ -123,11 +127,10 @@ function AboutContact() {
           </div>
         </div>
 
-        <div className="footer-bottom text-center py-3 bg-secondary mt-4">
-          © {new Date().getFullYear()} iFix Mobile Repair. All rights reserved.
-        </div>
+       
       </footer>
     </div>
+    </>
   );
 }
 

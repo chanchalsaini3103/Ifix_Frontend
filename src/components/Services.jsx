@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/Services.css";
 import { useNavigate } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const brands = [
   { name: "Apple", logo: "apple.png" },
@@ -25,6 +26,8 @@ function Services() {
   const navigate = useNavigate();
 
   return (
+    <>
+    <Navbar />
     
     <div className="brand-section py-5 mt-5">
       <h2 className="text-center mb-4 section-title">Top Brands</h2>
@@ -64,12 +67,8 @@ function Services() {
   </div>
 </div>
 
-
-       <div className="footer-bottom text-center py-3 bg-black text-white ">
-  © {new Date().getFullYear()} iFix Mobile Repair. All rights reserved.
-</div>
-
     </div>
+    </>
   );
 }
 

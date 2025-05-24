@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/RequestRepair.css";
+import axios from "axios";
+import Swal from "sweetalert2"; // ✅ import
 
 function RequestRepair() {
+  const [userId, setUserId] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -13,14 +16,42 @@ function RequestRepair() {
     notes: "",
   });
 
+  useEffect(() => {
+    const uid = localStorage.getItem("userId");
+    if (!uid) {
+      Swal.fire({
+        title: "Login Required",
+        text: "Please login to submit a repair request.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Go to Login",
+        cancelButtonText: "Cancel"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = "/login";
+        }
+      });
+    } else {
+      setUserId(uid);
+    }
+  }, []);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Submitted", formData);
-    alert("Repair request submitted successfully!");
+
+    try {
+      const payload = { ...formData, userId };
+      await axios.post("http://localhost:8081/api/repair/submit", payload);
+      Swal.fire("Success!", "Repair request submitted successfully!", "success");
+    } catch (err) {
+      Swal.fire("Error", "Failed to submit repair request.", "error");
+    }
   };
 
   return (
