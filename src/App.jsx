@@ -12,6 +12,7 @@ import OrderDetails from './components/OrderDetails';
 import AdminDashboard from './components/AdminDashboard';
 import Footer from './components/Footer';
 import MyRepairRequests from './components/MyRepairRequests';
+import ResetPassword from './components/ResetPassword';
 
 
 function BrandPage() {
@@ -39,6 +40,7 @@ function App() {
             <Route path="/brands/:brand/:model" element={<ModelIssues />} />
             <Route path="/order-details" element={<OrderDetails />} />
             <Route path="/my-requests" element={<MyRepairRequests />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
           </Routes>
         </main>
         <Footer />

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Auth.css";
 import Navbar from "./Navbar";
 
 function Login() {
-  const [form, setForm] = useState({ username: "", passwordHash: "" });
+  const [form, setForm] = useState({ email: "", passwordHash: "" });
   const navigate = useNavigate();
-  const location = useLocation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,20 +18,40 @@ function Login() {
       localStorage.setItem("userId", res.data.userId);
       localStorage.setItem("role", res.data.role);
 
-      const pendingOrder = localStorage.getItem("pendingOrder");
-      if (pendingOrder) {
-        navigate("/order-details", { state: JSON.parse(pendingOrder) });
+      if (res.data.role === "ADMIN") {
+        navigate("/admin-dashboard");
       } else {
-        if (res.data.role === "ADMIN") {
-          navigate("/admin-dashboard");
-        } else {
-          navigate("/");
-        }
+        navigate("/");
       }
     } catch (err) {
-      alert("Login failed. Please check your credentials.");
+      Swal.fire("Login Failed", "Invalid email or password", "error");
     }
   };
+
+  const handleForgotPassword = async () => {
+  const { value: email } = await Swal.fire({
+    title: "Forgot Password?",
+    input: "email",
+    inputLabel: "Enter your registered email",
+    inputPlaceholder: "you@example.com",
+    showCancelButton: true,
+    confirmButtonText: "Send Reset Link",
+  });
+
+  if (email) {
+    try {
+      const res = await axios.post("http://localhost:8081/api/auth/forgot-password", { email });
+      Swal.fire("Sent!", res.data, "success");
+    } catch (err) {
+      if (err.response && err.response.status === 404) {
+        Swal.fire("Email Not Found", "This email is not registered.", "warning");
+      } else {
+        Swal.fire("Error", "Failed to send reset link", "error");
+      }
+    }
+  }
+};
+
 
   return (
     <>
@@ -44,10 +64,10 @@ function Login() {
         >
           <div className="mb-3">
             <input
-              type="text"
-              placeholder="Enter Username"
-              value={form.username}
-              onChange={(e) => setForm({ ...form, username: e.target.value })}
+              type="email"
+              placeholder="Enter Email"
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
               className="form-control"
               required
             />
@@ -61,6 +81,11 @@ function Login() {
               className="form-control"
               required
             />
+          </div>
+          <div className="text-end mb-3">
+            <button type="button" className="btn btn-link p-0" onClick={handleForgotPassword}>
+              Forgot Password?
+            </button>
           </div>
           <div className="text-center">
             <button type="submit" className="btn btn-pink px-5 w-100">
