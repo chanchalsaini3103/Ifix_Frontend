@@ -40,11 +40,10 @@
   color: black !important;
   transition: 0.3s ease;
 }
-
 .footer {
   background-color: #111;
   color: #fff;
-  padding: 8px 0; /* reduced from 15px to 8px */
+  padding: 8px 0;
   text-align: center;
   font-size: 13px;
   width: 100%;
@@ -56,4 +55,22 @@
   display: inline-block;
   margin: 0;
   padding: 0;
+}
+/* Optional for animation */
+.slide-down {
+  animation: slideDown 0.5s ease-in-out forwards;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Ensure toggle icon visible on dark navbar */
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' ...");
 }
