@@ -18,9 +18,7 @@ function AdminDashboard() {
         confirmButtonText: "Go to Login",
         confirmButtonColor: "#d33"
       }).then(() => {
-        setTimeout(() => {
-          window.location.href = "/login";
-        }, 2000);
+        window.location.href = "/login";
       });
       return;
     }
@@ -41,14 +39,33 @@ function AdminDashboard() {
   };
 
   const handleMarkDone = async (id) => {
+    const confirm = await Swal.fire({
+      title: "Mark as Done?",
+      text: "Are you sure you want to mark this request as completed and notify the customer?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#28a745",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, mark as done"
+    });
+
+    if (!confirm.isConfirmed) return;
+
     try {
       await axios.put(`http://localhost:8081/api/repair/${id}/status`, {
         status: "DONE",
       });
+
       setRepairs(prev =>
         prev.map(r => (r.id === id ? { ...r, status: "DONE" } : r))
       );
-      Swal.fire("Marked as Done", "Repair request marked as completed.", "success");
+
+      Swal.fire({
+        icon: "success",
+        title: "Marked as Done",
+        text: "Customer has been notified via SMS.",
+        confirmButtonColor: "#28a745"
+      });
     } catch (err) {
       console.error("Failed to update status", err);
       Swal.fire("Error", "Failed to update repair status.", "error");

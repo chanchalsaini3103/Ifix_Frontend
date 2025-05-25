@@ -32,7 +32,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HeroPage />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+            <Route path="/register" element={<PhoneRegister />} />
             <Route path="/services" element={<Services />} />
             <Route path="/request" element={<RequestRepair />} />
             <Route path="/contact" element={<AboutContact />} />
@@ -42,7 +42,7 @@ function App() {
             <Route path="/order-details" element={<OrderDetails />} />
             <Route path="/my-requests" element={<MyRepairRequests />} />
             <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="/register-phone" element={<PhoneRegister />} />
+            
 
           </Routes>
         </main>

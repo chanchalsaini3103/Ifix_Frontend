@@ -10,23 +10,28 @@ function Login() {
   const [form, setForm] = useState({ email: "", passwordHash: "" });
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await axios.post("http://localhost:8081/api/auth/login", form);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const res = await axios.post("http://localhost:8081/api/auth/login", form);
 
-      localStorage.setItem("userId", res.data.userId);
-      localStorage.setItem("role", res.data.role);
+    localStorage.setItem("userId", res.data.userId);
+    localStorage.setItem("role", res.data.role);
 
-      if (res.data.role === "ADMIN") {
-        navigate("/admin-dashboard");
-      } else {
-        navigate("/");
-      }
-    } catch (err) {
-      Swal.fire("Login Failed", "Invalid email or password", "error");
+    const pendingOrder = localStorage.getItem("pendingOrder");
+
+    if (pendingOrder) {
+      localStorage.removeItem("pendingOrder");
+      navigate("/order-details", { state: JSON.parse(pendingOrder) });
+    } else if (res.data.role === "ADMIN") {
+      navigate("/admin-dashboard");
+    } else {
+      navigate("/"); // default Hero page for CUSTOMER or others
     }
-  };
+  } catch (err) {
+    Swal.fire("Login Failed", "Invalid email or password", "error");
+  }
+};
 
   const handleForgotPassword = async () => {
   const { value: email } = await Swal.fire({
