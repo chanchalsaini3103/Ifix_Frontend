@@ -13,6 +13,7 @@ import AdminDashboard from './components/AdminDashboard';
 import Footer from './components/Footer';
 import MyRepairRequests from './components/MyRepairRequests';
 import ResetPassword from './components/ResetPassword';
+import PhoneRegister from './components/PhoneRegister';
 
 
 function BrandPage() {
@@ -41,6 +42,8 @@ function App() {
             <Route path="/order-details" element={<OrderDetails />} />
             <Route path="/my-requests" element={<MyRepairRequests />} />
             <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/register-phone" element={<PhoneRegister />} />
+
           </Routes>
         </main>
         <Footer />

@@ -4,7 +4,7 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/OrderDetails.css";
 import Navbar from "./Navbar";
-import Swal from "sweetalert2"; // ✅ Import SweetAlert2
+import Swal from "sweetalert2";
 
 function OrderDetails() {
   const { state } = useLocation();
@@ -16,7 +16,6 @@ function OrderDetails() {
     email: "",
     notes: ""
   });
-  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const uid = localStorage.getItem("userId");
@@ -28,9 +27,7 @@ function OrderDetails() {
         icon: "warning",
         confirmButtonText: "Go to Login",
         confirmButtonColor: "#ff007f"
-      }).then(() => {
-        navigate("/login");
-      });
+      }).then(() => navigate("/login"));
     } else {
       setUserId(uid);
     }
@@ -72,14 +69,16 @@ function OrderDetails() {
     };
 
     try {
-      const res = await axios.post("http://localhost:8081/api/repair/submit", order);
+      await axios.post("http://localhost:8081/api/repair/submit", order);
       localStorage.removeItem("pendingOrder");
+
       Swal.fire({
         icon: "success",
         title: "Request Submitted!",
         text: "Thank you. We will contact you shortly.",
         confirmButtonColor: "#28a745"
       });
+
       setTimeout(() => navigate("/"), 2000);
     } catch (err) {
       Swal.fire({
@@ -154,8 +153,6 @@ function OrderDetails() {
           </div>
 
           <button type="submit" className="btn btn-pink w-100">Submit Request</button>
-
-          {message && <div className="alert alert-info mt-3 text-center">{message}</div>}
         </form>
       </div>
     </>
