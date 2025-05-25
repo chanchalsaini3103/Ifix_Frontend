@@ -10,6 +10,8 @@ function OrderDetails() {
   const { state } = useLocation();
   const navigate = useNavigate();
   const [userId, setUserId] = useState(null);
+  const [loading, setLoading] = useState(false);
+
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -57,6 +59,16 @@ function OrderDetails() {
       return;
     }
 
+    // ✅ Phone validation
+    if (!/^[6-9]\d{9}$/.test(form.phone)) {
+      Swal.fire({
+        icon: "error",
+        title: "Invalid Phone",
+        text: "Please enter a valid 10-digit Indian phone number.",
+      });
+      return;
+    }
+
     const order = {
       userId: parseInt(userId),
       name: form.name,
@@ -69,6 +81,7 @@ function OrderDetails() {
     };
 
     try {
+      setLoading(true);
       await axios.post("http://localhost:8081/api/repair/submit", order);
       localStorage.removeItem("pendingOrder");
 
@@ -86,6 +99,8 @@ function OrderDetails() {
         title: "Oops...",
         text: "Something went wrong while submitting the request.",
       });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -152,7 +167,9 @@ function OrderDetails() {
             ></textarea>
           </div>
 
-          <button type="submit" className="btn btn-pink w-100">Submit Request</button>
+          <button type="submit" className="btn btn-pink w-100" disabled={loading}>
+            {loading ? "Submitting..." : "Submit Request"}
+          </button>
         </form>
       </div>
     </>
