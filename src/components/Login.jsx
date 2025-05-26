@@ -4,7 +4,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Auth.css";
-import loginImg from "/public/images/login-bg.jpg"; // Add your image to public or src/assets
+
 import Navbar from "./Navbar";
 
 function Login() {
@@ -63,7 +63,8 @@ function Login() {
     <div className="login-page-wrapper">
       <div className="login-container">
         <div className="login-left">
-          <img src={loginImg} alt="login visual" />
+         <img src="/images/login.png" alt="Login" />
+
           <div className="welcome-text">
             <h3>Welcome Back</h3>
             <p>Please log in using your personal information to stay connected with us.</p>

@@ -1,0 +1,15 @@
+/* Footer.css */
+.footer {
+  background-color: #111;
+  color: #fff;
+  font-size: 13px;
+  text-align: center;
+  width: 100%;
+  padding: 8px 0;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+  margin-top: auto; /* pushes footer to bottom */
+}
+
+.footer-text {
+  padding: 4px;
+}

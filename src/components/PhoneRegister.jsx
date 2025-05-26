@@ -64,7 +64,7 @@ function PhoneRegister() {
       <div className="auth-wrapper">
         <div className="auth-container">
           <div className="auth-left">
-            <img src="/images/login-bg.jpg" alt="Register visual" />
+            <img src="/images/login.png" alt="Register visual" />
             <div className="welcome-text">
               <h3>Welcome!</h3>
               <p>Register easily with your phone number and OTP.</p>

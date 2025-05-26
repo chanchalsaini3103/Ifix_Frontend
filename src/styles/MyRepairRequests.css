@@ -1,0 +1,33 @@
+.stylish-table {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 15px;
+  margin-top: 50px;
+}
+
+.stylish-table th,
+.stylish-table td {
+  vertical-align: middle;
+  text-align: center;
+  padding: 12px;
+}
+
+.stylish-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.slide-down {
+  animation: slideDown 0.5s ease-in-out forwards;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

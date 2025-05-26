@@ -14,7 +14,7 @@ function BrandModels() {
     
     <Navbar />
     <div className="container py-5">
-      <h3 className=" mb-5 section-title">
+      <h3 style={{ marginTop: "50px" }} className=" mb-5 section-title">
         {brandName} Repair & Replacement
       </h3>
       <div className="row justify-content-center">

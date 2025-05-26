@@ -30,7 +30,7 @@ function Services() {
     <Navbar />
     
     <div className="brand-section py-5 mt-5">
-      <h2 className="text-center mb-4 section-title">Top Brands</h2>
+      <h2 style={{ marginTop: "50px" }} className="text-center mb-4 section-title">Top Brands</h2>
      
 
       <div className="container">

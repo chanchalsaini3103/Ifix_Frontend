@@ -1,11 +1,11 @@
 import React from "react";
-import "../styles/Navbar.css"; // Reuse CSS from Navbar
+import "../styles/Footer.css"; // Make sure this exists separately
 
 function Footer() {
   return (
-    <footer className="footer mt-auto bg-dark text-white">
-      <div className="container text-center py-2">
-        <small>&copy; {new Date().getFullYear()} iFix Mobile Repair. All rights reserved.</small>
+    <footer className="footer">
+      <div className="footer-text">
+        &copy; {new Date().getFullYear()} iFix Mobile Repair. All rights reserved.
       </div>
     </footer>
   );

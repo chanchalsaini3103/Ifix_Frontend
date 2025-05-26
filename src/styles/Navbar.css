@@ -1,4 +1,70 @@
-/* Slide down effect */
+/* Navbar container */
+.navbar {
+  background-color: black !important;
+  padding: 20px 20px;
+  z-index: 1050;
+  border-bottom: 2px solid #333;
+}
+
+/* Brand logo and name */
+.navbar-brand {
+  color: white !important;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+/* Nav links */
+.navbar-nav .nav-link {
+  color: white !important;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover underline */
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #0dcaf0;
+  transition: width 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #0dcaf0 !important;
+}
+
+/* Button styling */
+.navbar .btn-outline-light {
+  padding: 6px 15px;
+  font-size: 14px;
+  border-radius: 20px;
+  transition: 0.3s ease-in-out;
+}
+
+.navbar .btn-outline-light:hover {
+  background-color: #0dcaf0;
+  color: black !important;
+  border-color: #0dcaf0;
+}
+
+/* White toggle icon */
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Slide down animation */
 .slide-down {
   animation: slideDown 0.6s ease-out forwards;
 }
@@ -13,64 +79,18 @@
     opacity: 1;
   }
 }
-/* Optional for animation */
-/* .slide-down {
-  animation: slideDown 0.5s ease-in-out forwards;
-}
 
-@keyframes slideDown {
-  from {
-    transform: translateY(-100%);
+/* Responsive nav center */
+@media (max-width: 991px) {
+  .navbar-nav {
+    margin-top: 10px;
   }
-  to {
-    transform: translateY(0);
+
+  .navbar-nav .nav-item {
+    margin-bottom: 8px;
   }
-} */
-/* Make toggle icon white */
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
 
-
-/* Underline effect on hover */
-.custom-nav-links .nav-link {
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.custom-nav-links .nav-link::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0%;
-  height: 2px;
-  background-color: white;
-  transition: width 0.3s ease;
-}
-
-.custom-nav-links .nav-link:hover::after {
-  width: 100%;
-}
-
-.login-nav-btn:hover {
-  background-color: white;
-  color: black !important;
-  transition: 0.3s ease;
-}
-.footer {
-  background-color: #111;
-  color: #fff;
-  padding: 8px 0;
-  text-align: center;
-  font-size: 13px;
-  width: 100%;
-  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
-  line-height: 1.4;
-}
-
-.footer small {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
+  .navbar-nav .btn {
+    width: 100%;
+  }
 }

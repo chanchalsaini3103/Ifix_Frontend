@@ -1,0 +1,89 @@
+/* Sidebar styles */
+.sidebar {
+  background-color: #0b132b;
+  color: #fff;
+  height: 100vh;
+  width: 250px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+  padding: 20px;
+  z-index: 1000;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Admin Panel title */
+.sidebar h4 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Sidebar nav list */
+.sidebar .nav {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sidebar nav item */
+.sidebar .nav-link {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #fff;
+  text-align: left;
+  padding: 10px 0;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Hover underline effect */
+.sidebar .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #17a2b8;
+  transition: width 0.3s ease-in-out;
+}
+
+.sidebar .nav-link:hover::after {
+  width: 100%;
+}
+
+.sidebar .nav-link:hover {
+  color: #17a2b8;
+  transform: translateX(5px);
+}
+
+/* Logout button */
+.sidebar .btn-outline-light {
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+/* Push content to right to accommodate sidebar */
+.main-content {
+  margin-left: 250px;
+  padding: 2rem;
+}
+
+/* Responsive: collapse sidebar on smaller screens */
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 1rem;
+  }
+}

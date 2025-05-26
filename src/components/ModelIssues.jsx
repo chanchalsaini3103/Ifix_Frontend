@@ -4,11 +4,11 @@ import Navbar from "./Navbar";
 
 
 const issues = [
-  { name: "DISPLAY", icon: "display.png" },
-  { name: "TOUCH GLASS", icon: "touch.png" },
-  { name: "BATTERY", icon: "battery.png" },
-  { name: "CHARGING PORT", icon: "charging.png" },
-  { name: "EAR SPEAKER", icon: "speaker.png" },
+  { name: "DISPLAY", icon: "/problems/display.png" },
+  { name: "TOUCH GLASS", icon: "/problems/touch.png" },
+  { name: "BATTERY", icon: "/problems/battery.png" },
+  { name: "CHARGING PORT", icon: "/problems/charging.png" },
+  { name: "EAR SPEAKER", icon: "/problems/speaker.png" },
 ];
 
 function ModelIssues() {

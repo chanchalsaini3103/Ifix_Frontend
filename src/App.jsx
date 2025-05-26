@@ -6,7 +6,7 @@ import BrandModels from './components/BrandModels';
 import AboutContact from './components/AboutContact';
 import RequestRepair from './components/RequestRepair';
 import Login from './components/Login';
-import Register from './components/Register';
+
 import ModelIssues from './components/ModelIssues';
 import OrderDetails from './components/OrderDetails';
 import AdminDashboard from './components/AdminDashboard';

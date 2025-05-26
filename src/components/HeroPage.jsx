@@ -236,19 +236,21 @@ function HeroPage() {
 
             {/* Contact */}
             <div className="col-md-4 mb-3">
-              <h6>Contact Us</h6>
-              <p className="mb-1">📍 Pimpri, Pune, Maharashtra</p>
-              <p className="mb-1">📞 +91 8888668186</p>
-              <p className="mb-1">✉️ support@ifixmobiles.in</p>
-              <a
-                href="https://maps.app.goo.gl/XRLjtocjKB6tcox1A"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white text-decoration-underline"
-              >
-                View on Google Maps
-              </a>
-            </div>
+  <h6>Contact Us</h6>
+  <p className="mb-1">📍 Pimpri, Pune, Maharashtra</p>
+  <p className="mb-1">📞 +91 8888668186</p>
+  <p className="mb-1">✉️ support@ifixmobiles.in</p>
+  
+  <a
+    href="https://www.instagram.com/ifix_smartphone_repairs?igsh=bTA4cTR2MW1wM2o3"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-white text-decoration-underline d-block"
+  >
+    📸 Follow us on Instagram
+  </a>
+</div>
+
           </div>
         </div>
 
