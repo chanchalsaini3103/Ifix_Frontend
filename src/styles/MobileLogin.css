@@ -1,0 +1,64 @@
+/* styles/MobileLogin.css */
+.mobile-login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #f2f2f2, #ffffff);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.login-phone-mockup {
+  width: 320px;
+  padding: 2rem;
+  border-radius: 30px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  background: white;
+  text-align: center;
+}
+
+.login-avatar {
+  font-size: 60px;
+  background-color: #3f78f4;
+  color: white;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form input {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 14px;
+}
+
+.register-btn {
+  width: 100%;
+  background-color: #3f78f4;
+  border: none;
+  padding: 12px;
+  border-radius: 25px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.register-btn:hover {
+  background-color: #2d62d1;
+}
+
+.signin-link {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #3f78f4;
+  cursor: pointer;
+}

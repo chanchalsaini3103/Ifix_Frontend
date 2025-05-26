@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import MyRepairRequests from './components/MyRepairRequests';
 import ResetPassword from './components/ResetPassword';
 import PhoneRegister from './components/PhoneRegister';
+import AdminEditModels from './components/AdminEditModels';
 
 
 function BrandPage() {
@@ -42,6 +43,7 @@ function App() {
             <Route path="/order-details" element={<OrderDetails />} />
             <Route path="/my-requests" element={<MyRepairRequests />} />
             <Route path="/reset-password" element={<ResetPassword />} />
+             <Route path="/admin/edit-models" element={<AdminEditModels />} />
             
 
           </Routes>
