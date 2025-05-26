@@ -11,6 +11,7 @@
 /* Container for both login and register */
 .auth-container,
 .login-container {
+  margin-top: 50px;
   display: flex;
   width: 900px;
   background: #fff;
@@ -74,6 +75,7 @@
 @media (max-width: 768px) {
   .auth-container,
   .login-container {
+    margin-top: 50px;
     flex-direction: column;
     width: 100%;
     border-radius: 0;
