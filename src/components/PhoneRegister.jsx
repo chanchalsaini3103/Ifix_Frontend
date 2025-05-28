@@ -4,6 +4,8 @@ import Swal from "sweetalert2";
 import "../styles/Auth.css";
 import Navbar from "./Navbar";
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 function PhoneRegister() {
   const [step, setStep] = useState(1);
   const [form, setForm] = useState({
@@ -22,7 +24,7 @@ function PhoneRegister() {
 
   const sendOtp = async () => {
     try {
-      await axios.post("http://localhost:8081/api/auth/send-otp", {
+      await axios.post(`${BASE_URL}/api/auth/send-otp`, {
         ...form,
         phone: "+91" + form.phone,
       });
@@ -35,7 +37,7 @@ function PhoneRegister() {
 
   const verifyOtp = async () => {
     try {
-      const res = await axios.post("http://localhost:8081/api/auth/verify-otp", {
+      const res = await axios.post(`${BASE_URL}/api/auth/verify-otp`, {
         phone: "+91" + form.phone,
         otp: form.otp,
       });
@@ -48,7 +50,7 @@ function PhoneRegister() {
 
   const register = async () => {
     try {
-      await axios.post("http://localhost:8081/api/auth/register", {
+      await axios.post(`${BASE_URL}/api/auth/register`, {
         ...form,
         phone: "+91" + form.phone,
       });

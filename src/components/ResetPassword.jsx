@@ -4,6 +4,8 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 function ResetPassword() {
   const [password, setPassword] = useState("");
   const [token, setToken] = useState("");
@@ -19,12 +21,12 @@ function ResetPassword() {
       Swal.fire("Invalid Link", "No token provided.", "error");
       navigate("/login");
     }
-  }, [location]);
+  }, [location, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8081/api/auth/reset-password", {
+      const res = await axios.post(`${BASE_URL}/api/auth/reset-password`, {
         token,
         newPassword: password,
       });

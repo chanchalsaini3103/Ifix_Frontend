@@ -15,6 +15,8 @@ import {
 } from "react-icons/fa";
 import Swal from "sweetalert2";
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 function AdminDashboard() {
   const [view, setView] = useState("dashboard");
   const [users, setUsers] = useState([]);
@@ -22,15 +24,19 @@ function AdminDashboard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const role = localStorage.getItem("role");
-    if (role !== "ADMIN") {
-      window.location.href = "/login";
-      return;
-    }
+  const role = localStorage.getItem("role");
+  if (role !== "ADMIN") {
+    window.location.href = "/login";
+    return;
+  }
 
-    axios.get("http://localhost:8081/api/admin/users").then((res) => setUsers(res.data));
-    axios.get("http://localhost:8081/api/repair/all").then((res) => setRepairs(res.data));
-  }, []);
+  axios.get(`${BASE_URL}/api/admin/users`, { withCredentials: true })
+    .then((res) => setUsers(res.data));
+
+  axios.get(`${BASE_URL}/api/repair/all`, { withCredentials: true })
+    .then((res) => setRepairs(res.data));
+}, []);
+
 
   const completedRepairs = repairs.filter((r) => r.status === "DONE").length;
   const pendingRepairs = repairs.length - completedRepairs;
@@ -54,7 +60,7 @@ function AdminDashboard() {
     if (!confirm.isConfirmed) return;
 
     try {
-      await axios.put(`http://localhost:8081/api/repair/${id}/status`, { status: "DONE" });
+      await axios.put(`${BASE_URL}/api/repair/${id}/status`, { status: "DONE" });
       setRepairs((prev) => prev.map((r) => (r.id === id ? { ...r, status: "DONE" } : r)));
       Swal.fire({ icon: "success", title: "Marked as Done", text: "Customer has been notified." });
     } catch (err) {
@@ -125,84 +131,84 @@ function AdminDashboard() {
         )}
 
         {view === "users" && (
-  <>
-    <h2 className="section-title">👥 Registered Users</h2>
-    <div className="table-responsive">
-      <table className="styled-table">
-        <thead>
-          <tr>
-            <th>User ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Role</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map(user => (
-            <tr key={user.userId}>
-              <td>{user.userId}</td>
-              <td>{user.fullName}</td>
-              <td>{user.email}</td>
-              <td>{user.phone}</td>
-              <td>{user.role}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  </>
-)}
+          <>
+            <h2 className="section-title">👥 Registered Users</h2>
+            <div className="table-responsive">
+              <table className="styled-table">
+                <thead>
+                  <tr>
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Role</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {users.map(user => (
+                    <tr key={user.userId}>
+                      <td>{user.userId}</td>
+                      <td>{user.fullName}</td>
+                      <td>{user.email}</td>
+                      <td>{user.phone}</td>
+                      <td>{user.role}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
 
-{view === "orders" && (
-  <>
-    <h2 className="section-title">🔧 Repair Orders</h2>
-    <div className="table-responsive">
-      <table className="styled-table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>User ID</th>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Brand</th>
-            <th>Model</th>
-            <th>Issue</th>
-            <th>Status</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {repairs.map((r) => (
-            <tr key={r.id}>
-              <td>{r.id}</td>
-              <td>{r.userId}</td>
-              <td>{r.name}</td>
-              <td>{r.phone}</td>
-              <td>{r.email}</td>
-              <td>{r.brand}</td>
-              <td>{r.model}</td>
-              <td>{r.issue}</td>
-              <td>
-                <span className={`badge ${r.status === "DONE" ? "badge-success" : "badge-pending"}`}>
-                  {r.status}
-                </span>
-              </td>
-              <td>
-                {r.status === "DONE" ? (
-                  <button className="btn btn-sm btn-success" disabled>✅ Completed</button>
-                ) : (
-                  <button className="btn btn-sm btn-outline-warning" onClick={() => handleMarkDone(r.id)}>Mark Done</button>
-                )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  </>
-)}
+        {view === "orders" && (
+          <>
+            <h2 className="section-title">🔧 Repair Orders</h2>
+            <div className="table-responsive">
+              <table className="styled-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Issue</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {repairs.map((r) => (
+                    <tr key={r.id}>
+                      <td>{r.id}</td>
+                      <td>{r.userId}</td>
+                      <td>{r.name}</td>
+                      <td>{r.phone}</td>
+                      <td>{r.email}</td>
+                      <td>{r.brand}</td>
+                      <td>{r.model}</td>
+                      <td>{r.issue}</td>
+                      <td>
+                        <span className={`badge ${r.status === "DONE" ? "badge-success" : "badge-pending"}`}>
+                          {r.status}
+                        </span>
+                      </td>
+                      <td>
+                        {r.status === "DONE" ? (
+                          <button className="btn btn-sm btn-success" disabled>✅ Completed</button>
+                        ) : (
+                          <button className="btn btn-sm btn-outline-warning" onClick={() => handleMarkDone(r.id)}>Mark Done</button>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
 
         {view === "messages" && (
           <>

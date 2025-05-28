@@ -6,6 +6,8 @@ import Footer from "./Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/MyRepairRequests.css";
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 function MyRepairRequests() {
   const [requests, setRequests] = useState([]);
 
@@ -26,7 +28,7 @@ function MyRepairRequests() {
     }
 
     axios
-      .get(`http://localhost:8081/api/repair/user/${userId}`, {
+      .get(`${BASE_URL}/api/repair/user/${userId}`, {
         withCredentials: true,
       })
       .then((res) => setRequests(res.data))
@@ -40,9 +42,9 @@ function MyRepairRequests() {
     <>
       <Navbar />
       <div className="container my-5 slide-down">
-      <h2 style={{ marginTop: "50px" }} className="text-center mb-4 fw-bold text-primary">
-  📋 My Repair Requests
-</h2>
+        <h2 style={{ marginTop: "50px" }} className="text-center mb-4 fw-bold text-primary">
+          📋 My Repair Requests
+        </h2>
 
         <div className="table-responsive shadow rounded">
           <table className="table stylish-table table-hover table-bordered align-middle">
@@ -89,7 +91,6 @@ function MyRepairRequests() {
           </table>
         </div>
       </div>
-    
     </>
   );
 }

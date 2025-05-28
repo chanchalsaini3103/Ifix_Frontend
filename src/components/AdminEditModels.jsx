@@ -1,8 +1,9 @@
-// AdminEditModels.jsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/AdminDashboard.css";
+
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 function AdminEditModels() {
   const [brands, setBrands] = useState([]);
@@ -12,20 +13,20 @@ function AdminEditModels() {
   const [newImage, setNewImage] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:8081/api/admin/brands")
+    axios.get(`${BASE_URL}/api/admin/brands`)
       .then(res => setBrands(res.data))
       .catch(err => console.error("Failed to load brands", err));
   }, []);
 
   const fetchModels = (brandId) => {
     setSelectedBrand(brandId);
-    axios.get(`http://localhost:8081/api/admin/brands/${brandId}/models`)
+    axios.get(`${BASE_URL}/api/admin/brands/${brandId}/models`)
       .then(res => setModels(res.data))
       .catch(err => console.error("Failed to fetch models", err));
   };
 
   const handleAddModel = () => {
-    axios.post(`http://localhost:8081/api/admin/brands/${selectedBrand}/models`, {
+    axios.post(`${BASE_URL}/api/admin/brands/${selectedBrand}/models`, {
       name: newModelName,
       image: newImage
     })
@@ -38,7 +39,7 @@ function AdminEditModels() {
   };
 
   const handleDeleteModel = (modelId) => {
-    axios.delete(`http://localhost:8081/api/admin/models/${modelId}`)
+    axios.delete(`${BASE_URL}/api/admin/models/${modelId}`)
       .then(() => fetchModels(selectedBrand))
       .catch(err => console.error("Failed to delete model", err));
   };

@@ -1,59 +1,173 @@
+
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/HeroPage.css";
-import ImageSlider from "./ImageSlider";
+import axios from "axios";
+import Swal from "sweetalert2";
 import Navbar from "./Navbar";
 
+import { Link } from "react-router-dom";
+import MobileRepair from "./MobileRepair";
+
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 function HeroPage() {
+  const [userId, setUserId] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    brand: "",
+    model: "",
+    issue: "",
+    notes: "",
+  });
+
+  useEffect(() => {
+    const uid = localStorage.getItem("userId");
+    if (!uid) {
+      setUserId("");
+    } else {
+      setUserId(uid);
+    }
+  }, []);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const payload = { ...formData, userId };
+      await axios.post(`${BASE_URL}/api/repair/submit`, payload);
+      Swal.fire("Success!", "Repair request submitted successfully!", "success");
+    } catch (err) {
+      Swal.fire("Error", "Failed to submit repair request.", "error");
+    }
+  };
+
+  const cards = [
+    { label: "Mobile Repair", img: "/images/phone.webp" },
+    { label: "iPad Repair", img: "/images/ipad.png" },
+    { label: "Apple Watch Repair", img: "/images/watch.png" },
+    { label: "MacBook Repair", img: "/images/macbook.png" },
+    { label: "Tablet Repair", img: "/images/tablet.png" },
+    { label: "Tempered Glass", img: "/images/temperedglass.png" }
+  ];
+
   return (
     <>
-     <Navbar />
+      <Navbar />
+      <div className="hero-form-section py-1 bg-dark text-white">
+        <div className="container d-flex flex-column flex-lg-row align-items-center justify-content-between">
+          <div className="text-section mb-4 mb-lg-0 pe-lg-5">
+            <h1 className="fw-bold display-5">India’s First Doorstep Repair Service Provider</h1>
+            <hr className="text-danger" style={{ width: "80px" }} />
+            <p className="lead">
+              Get Convenient, Transparent, and Affordable iPhone repairs right at your doorstep,
+              completed in just 30 minutes.
+            </p>
+           <div className="repair-cards-grid mt-4">
+  {cards.map((item, i) => (
+    <Link to={`/services/${item.label.toLowerCase().replace(/\s+/g, '-')}`}>
 
-      <div className="pt-5">
-        <ImageSlider />
+      <div className="repair-card">
+        <img src={item.img} alt={item.label} />
+        <p>{item.label}</p>
       </div>
+    </Link>
+  ))}
+</div>
 
-      
-      <div className="how-it-works-container">
-        <h2 className="text-center">How It Works</h2>
-        <div className="underline mx-auto"></div>
-        <div className="steps-container">
-          <div className="step-box">
-            <div className="icon-circle">📱</div>
-            <h5>BOOK REPAIR SERVICE</h5>
-            <p>
-              Select your device and book repair service as per your
-              requirement. Call our executive at 8888668186 for any assistance
-              in placing the order.
-            </p>
           </div>
-          <div className="step-box">
-            <div className="icon-circle">🚚</div>
-            <h5>FREE PICKUP OF YOUR DEVICE</h5>
-            <p>
-              Our executive partner will pick your device right from the comfort
-              of your home or office.
-            </p>
-          </div>
-          <div className="step-box">
-            <div className="icon-circle">🔧</div>
-            <h5>REPAIR AT OUR LAB</h5>
-            <p>
-              Our expert technical team will diagnose and fix your device to
-              perfection.
-            </p>
-          </div>
-          <div className="step-box">
-            <div className="icon-circle">📦</div>
-            <h5>FREE & FAST RETURN</h5>
-            <p>
-              Your repaired device will be delivered to you in just a day
-              subject to the location and repair type.
-            </p>
+
+          <div className="form-card bg-white text-dark p-4 rounded shadow" style={{ maxWidth: "500px", width: "100%" }}>
+            <h5 className="text-center fw-bold mb-3">Get ready,<br />We will contact you shortly!</h5>
+            <hr className="text-danger mx-auto" style={{ width: "50%" }} />
+            <form onSubmit={handleSubmit} className="mt-3">
+              <div className="row g-2">
+                <div className="col-6">
+                  <input type="text" name="name" placeholder="Name" className="form-control" required onChange={handleChange} />
+                </div>
+                <div className="col-6">
+                  <input type="tel" name="phone" placeholder="Phone no." className="form-control" required onChange={handleChange} />
+                </div>
+                <div className="col-6">
+                  <select name="brand" className="form-select" required onChange={handleChange}>
+                    <option value="">Select brand</option>
+                    <option>Apple</option><option>Samsung</option><option>MI</option><option>Realme</option><option>Vivo</option><option>OnePlus</option><option>Oppo</option><option>Other</option>
+                  </select>
+                </div>
+                <div className="col-6">
+                  <select name="issue" className="form-select" required onChange={handleChange}>
+                    <option value="">Select issue</option>
+                    <option>Screen Damage</option><option>Battery Issue</option><option>Water Damage</option><option>Charging Issue</option><option>Software Issue</option><option>Other</option>
+                  </select>
+                </div>
+                <div className="col-6">
+                  <input type="text" name="model" placeholder="Enter device model" className="form-control" required onChange={handleChange} />
+                </div>
+                <div className="col-6">
+                  <input type="text" name="notes" placeholder="Enter device faults" className="form-control" onChange={handleChange} />
+                </div>
+                <div className="col-12">
+                  <input type="text" name="city" placeholder="Select your city" className="form-control" onChange={handleChange} />
+                </div>
+              </div>
+              <div className="mt-3 d-flex justify-content-center gap-4 small text-danger fw-semibold">
+                <span>✔️ Doorstep Repair</span>
+                <span>✔️ Secure & Trusted</span>
+                <span>✔️ 10 Years of Trusted Service</span>
+              </div>
+              <div className="text-center mt-3">
+                <button type="submit" className="btn btn-danger px-5 py-2">Submit</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
+      <div className="scrolling-info-bar py-3 bg-white">
+  <div className="scrolling-items">
+    {[...Array(2)].flatMap(() =>
+      [
+        { icon: "bi-shield-check", text: "Upto 6 Month Warranty" },
+        { icon: "bi-tools", text: "Onsite Repair" },
+        { icon: "bi-clock-history", text: "Quick Turn around time" },
+        { icon: "bi-award", text: "High Quality Parts" },
+        { icon: "bi-shield-check", text: "Upto 6 Month Warranty" },
+        { icon: "bi-tools", text: "Onsite Repair" },
+      ].map((item, i) => (
+        <div className="scroll-item" key={i}>
+          <i className={`bi ${item.icon} me-2`}></i> {item.text}
+        </div>
+      ))
+    )}
+  </div>
+</div>
+{/* Experience Banner Section */}
+<div className="experience-banner my-5">
+  <div className="container d-flex align-items-center justify-content-between flex-column flex-md-row">
+    {/* Left Technician Image */}
+    <div className="technician-img">
+      <img src="/images/tech-left.png" alt="Technician 1" className="img-fluid" />
+    </div>
 
-      {/* Why iFix Section */}
+    {/* Center Text */}
+    <div className="experience-text text-center mx-4">
+      <h6 className="text-success fw-bold">10 YEARS' EXCLUSIVE</h6>
+      <h2 className="fw-bold text-gradient">SMART DEVICE<br />REPAIR SERVICE</h2>
+      <h5 className="text-gradient fw-semibold mt-2">EXPERIENCE</h5>
+    </div>
+
+    {/* Right Technician Image */}
+    <div className="technician-img">
+      <img src="/images/tech-right.png" alt="Technician 2" className="img-fluid" />
+    </div>
+  </div>
+</div>
+<MobileRepair />
+ {/* Why iFix Section */}
       {/* Why Choose iFix Section – One Screen Layout */}
       <div className="why-choose-section container d-flex flex-column flex-lg-row align-items-center justify-content-center py-5">
         {/* Left: Image */}
@@ -97,31 +211,7 @@ function HeroPage() {
         </div>
       </div>
 
-      {/* What We Repair Section */}
-      <div className="repair-card-wrapper text-center py-5">
-  <h2 className="section-title mb-4">Repair Services</h2>
-
-  <div className="repair-scroll-container d-flex justify-content-center">
-    <div className="repair-scroll d-flex overflow-auto">
-      {[
-        { icon: "screen.png", label: "SCREEN" },
-        { icon: "battery.png", label: "BATTERY" },
-        { icon: "mic.png", label: "MIC" },
-        { icon: "receiver.png", label: "RECEIVER" },
-        { icon: "charging.png", label: "CHARGING JACK" },
-        { icon: "speaker.png", label: "SPEAKER" },
-        { icon: "back.png", label: "BACK PANEL" },
-      ].map((item, index) => (
-        <div key={index} className="repair-card text-center mx-3">
-          <img src={`/images/${item.icon}`} alt={item.label} />
-          <p>{item.label}</p>
-        </div>
-      ))}
-    </div>
-  </div>
-</div>
-
-
+     
       {/* Chat Prompt / CTA */}
       <div className="chat-cta-section text-center py-5">
         <h4>Need help? Chat with us now</h4>

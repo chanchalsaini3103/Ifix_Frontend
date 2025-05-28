@@ -1,0 +1,49 @@
+.service-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  min-height: 180px;
+  text-align: center;
+}
+
+.service-card:hover {
+  border-color: #ff6600;
+  box-shadow: 0 4px 10px rgba(255, 102, 0, 0.1);
+}
+
+.service-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.service-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #333;
+}
+.service-card, .ipad-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  transition: 0.3s ease;
+  min-height: 150px;
+}
+
+.service-card:hover, .ipad-card:hover {
+  border-color: #ff4b2b;
+  box-shadow: 0 0 10px rgba(255, 75, 43, 0.2);
+}
+
+.service-icon {
+  max-height: 40px;
+  object-fit: contain;
+}

@@ -6,6 +6,8 @@ import "../styles/OrderDetails.css";
 import Navbar from "./Navbar";
 import Swal from "sweetalert2";
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 function OrderDetails() {
   const { state } = useLocation();
   const navigate = useNavigate();
@@ -59,7 +61,6 @@ function OrderDetails() {
       return;
     }
 
-    // ✅ Phone validation
     if (!/^[6-9]\d{9}$/.test(form.phone)) {
       Swal.fire({
         icon: "error",
@@ -82,7 +83,7 @@ function OrderDetails() {
 
     try {
       setLoading(true);
-      await axios.post("http://localhost:8081/api/repair/submit", order);
+      await axios.post(`${BASE_URL}/api/repair/submit`, order);
       localStorage.removeItem("pendingOrder");
 
       Swal.fire({
