@@ -129,7 +129,7 @@ function Navbar() {
                   <ul className="dropdown-menu show">
                     {services.map((service, index) => (
                       <li key={index}>
-                        <Link className="dropdown-item" to={`/repair/${service.toLowerCase().replace(/ /g, "-")}`}>
+                        <Link className="dropdown-item" to={`/services/${service.toLowerCase().replace(/ /g, "-")}`}>
                           {service}
                         </Link>
                       </li>
