@@ -1,0 +1,40 @@
+/* Make square card with clean border and hover effect */
+.brand-card-square {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Ensures perfect square */
+  border: 2px solid #f0f0f0;
+  border-radius: 12px;
+  padding: 16px;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+.brand-card-square:hover {
+  border-color: #dc3545;
+  background-color: #fff0f0;
+  box-shadow: 0 6px 12px rgba(220, 53, 69, 0.2);
+  transform: translateY(-5px);
+}
+
+.brand-logo {
+  max-height: 70px;
+  max-width: 70%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.brand-card-square:hover .brand-logo {
+  transform: scale(1.05);
+}
+
+.brand-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #000;
+  margin: 0;
+}
+
+.breadcrumb-nav {
+  font-size: 1rem;
+}

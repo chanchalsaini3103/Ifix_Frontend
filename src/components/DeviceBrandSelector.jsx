@@ -1,7 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { deviceBrands, deviceModelMap } from "../data/deviceData";
+import { deviceBrands } from "../data/deviceData";
 import Navbar from "./Navbar";
+import "../styles/DeviceBrandSelector.css";
 
 const brandImages = {
   Apple: "/images/brands/apple.png",
@@ -49,31 +50,33 @@ function DeviceBrandSelector({ category }) {
   return (
     <>
       <Navbar />
-      <div className="container py-5 text-center">
-        <h2 className="fw-bold">{titleMap[category]}: Select Your Brand</h2>
-        <div className="d-flex flex-wrap justify-content-center gap-4 mt-4">
+      <div className="container py-5">
+        <h2 className="fw-bold mb-3">{titleMap[category]}: Select Your Brand</h2>
+        <nav className="breadcrumb-nav text-start mb-4">
+          <span className="text-danger fw-semibold">Home</span>
+          <span className="mx-1">›</span>
+          <span className="text-dark">{titleMap[category]}</span>
+        </nav>
+
+        <div className="row g-4 justify-content-center">
           {brands.map((brand) => (
             <div
               key={brand}
-              className="card p-3 text-center shadow-sm"
+              className="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center"
               onClick={() =>
-  navigate(
-    category === "watches"
-      ? `/services/apple-watch-repair/models`
-      : `${baseRoute}/${brand.toLowerCase().replace(/\s+/g, "-")}`,
-    { state: { brand } }
-  )
-}
-
-              style={{ cursor: "pointer", width: "180px" }}
+                navigate(
+                  category === "watches"
+                    ? `/services/apple-watch-repair/models`
+                    : `${baseRoute}/${brand.toLowerCase().replace(/\s+/g, "-")}`,
+                  { state: { brand } }
+                )
+              }
+              style={{ cursor: "pointer" }}
             >
-              <img
-                src={brandImages[brand]}
-                alt={brand}
-                className="img-fluid"
-                style={{ height: "100px", objectFit: "contain" }}
-              />
-              <p className="mt-2 fw-semibold">{brand}</p>
+              <div className="brand-card-square d-flex flex-column align-items-center justify-content-center">
+                <img src={brandImages[brand]} alt={brand} className="brand-logo" />
+                <p className="mt-2 brand-label">{brand}</p>
+              </div>
             </div>
           ))}
         </div>

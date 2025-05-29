@@ -1,0 +1,11 @@
+.issue-card {
+  transition: all 0.3s ease;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  background: #fff;
+}
+.issue-card:hover {
+  border-color: #dc3545;
+  background: #fff0f0;
+  transform: translateY(-4px);
+}

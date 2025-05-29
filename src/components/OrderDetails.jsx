@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../styles/OrderDetails.css";
 import Navbar from "./Navbar";
 import Swal from "sweetalert2";
+import "../styles/OrderDetails.css";
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -110,68 +109,76 @@ function OrderDetails() {
   return (
     <>
       <Navbar />
-      <div className="containerorder mt-5 mb-5">
-        <form
-          onSubmit={handleSubmit}
-          className="mx-auto order-card p-4 shadow rounded bg-white"
-        >
-          <h3 className="text-center mb-4">Place Your Service Order</h3>
-          <div className="mb-3 bg-light p-3 rounded">
-            <strong>Brand:</strong> {state.brand} <br />
-            <strong>Model:</strong> {state.model} <br />
-            <strong>Issue:</strong> {state.issue}
-          </div>
-
-          <div className="form-group mb-3">
-            <input
-              type="text"
-              className="form-control"
-              name="name"
-              placeholder="Full Name"
-              value={form.name}
-              onChange={handleChange}
-              required
+      <div className="order-popup-wrapper d-flex align-items-center justify-content-center py-5">
+        <div className="order-popup-modal row bg-white shadow rounded-4 overflow-hidden">
+          <div className="col-md-6 p-0">
+            <img
+              src="/images/technician.jpg"
+              alt="Technician"
+              className="img-fluid h-100 w-100 object-fit-cover"
             />
           </div>
+          <div className="col-md-6 p-4">
+            <h5 className="fw-bold text-center mb-3">
+              You’re just 1-step away to view<br />
+              <span className="text-danger">{state.model} Repair Cost!</span>
+            </h5>
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="name"
+                  placeholder="Name"
+                  value={form.name}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <input
+                  type="tel"
+                  className="form-control"
+                  name="phone"
+                  placeholder="Phone"
+                  value={form.phone}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <input
+                  type="email"
+                  className="form-control"
+                  name="email"
+                  placeholder="Email (optional)"
+                  value={form.email}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="mb-3">
+                <textarea
+                  className="form-control"
+                  name="notes"
+                  placeholder="Your city or message"
+                  rows="2"
+                  value={form.notes}
+                  onChange={handleChange}
+                ></textarea>
+              </div>
 
-          <div className="form-group mb-3">
-            <input
-              type="tel"
-              className="form-control"
-              name="phone"
-              placeholder="Phone Number"
-              value={form.phone}
-              onChange={handleChange}
-              required
-            />
+              <div className="text-start small mb-3 text-secondary">
+                <i className="bi bi-check2-circle text-danger me-1"></i> Doorstep Repair
+                <i className="bi bi-check2-circle text-danger ms-3 me-1"></i> Secure & Trusted
+                <i className="bi bi-check2-circle text-danger ms-3 me-1"></i> 10 Years of Trusted Service
+              </div>
+
+              <button type="submit" className="btn btn-danger w-100 fw-semibold">
+                {loading ? "Submitting..." : "Submit"}
+              </button>
+            </form>
           </div>
-
-          <div className="form-group mb-3">
-            <input
-              type="email"
-              className="form-control"
-              name="email"
-              placeholder="Email (optional)"
-              value={form.email}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="form-group mb-4">
-            <textarea
-              className="form-control"
-              name="notes"
-              placeholder="Additional Notes"
-              rows="3"
-              value={form.notes}
-              onChange={handleChange}
-            ></textarea>
-          </div>
-
-          <button type="submit" className="btn btn-pink w-100" disabled={loading}>
-            {loading ? "Submitting..." : "Submit Request"}
-          </button>
-        </form>
+        </div>
       </div>
     </>
   );
