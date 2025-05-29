@@ -8,7 +8,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+margin: 0px;
   min-height: 180px;
   text-align: center;
 }
@@ -19,14 +19,14 @@
 }
 
 .service-icon {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
+  width: 50px;
+  height: 50px;
+  object-fit: fill;
   margin-bottom: 0.5rem;
 }
 
 .service-label {
-  font-size: 0.85rem;
+  font-size: 12px;
   font-weight: 500;
   color: #333;
 }
