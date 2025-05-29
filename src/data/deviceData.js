@@ -1,4 +1,67 @@
-export const brandModels = {
+// src/data/deviceData.js
+
+export const deviceBrands = {
+  phones: [
+    "Apple", "MI", "Samsung", "Vivo", "OnePlus", "Oppo", "Realme",
+    "Motorola", "Nokia", "Asus", "Google", "Poco", "Infinix"
+  ],
+  tablets: ["Samsung Tablet", "Lenovo Tablet"],
+  ipads: ["iPad", "iPad Mini", "iPad Air", "iPad Pro"],
+  macbooks: ["MacBook Air", "MacBook Pro"],
+  watches: ["Apple Watch"]
+};
+
+export const deviceModelMap = {
+  // 🔹 Apple Watch
+  "Apple Watch": [
+    { name: "Apple Watch Series SE 2", image: "/images/watch/se2.png" },
+    { name: "Apple Watch Series Ultra 2", image: "/images/watch/ultra2.png" },
+    { name: "Apple Watch Series Ultra 1", image: "/images/watch/ultra1.png" },
+    { name: "Apple Watch Series 9", image: "/images/watch/9.png" },
+    { name: "Apple Watch Series 8", image: "/images/watch/8.png" },
+    { name: "Apple Watch Series 7", image: "/images/watch/7.png" }
+  ],
+
+  // 🔹 iPads
+  iPad: [
+    "iPad 10th Generation", "iPad 9th Generation", "iPad 8th Generation",
+    "iPad 7th Generation", "iPad 6th Generation", "iPad 5th Generation",
+    "iPad 4th Generation"
+  ],
+  "iPad Mini": ["iPad Mini 6", "iPad Mini 5", "iPad Mini 4"],
+  "iPad Air": ["iPad Air 5", "iPad Air 4", "iPad Air 3"],
+  "iPad Pro": ["iPad Pro 12.9", "iPad Pro 11", "iPad Pro 10.5"],
+
+  // 🔹 Tablets
+  "Samsung Tablet": [
+    "Samsung Galaxy Tab A7", "Samsung Galaxy Tab S10 Plus",
+    "Samsung Galaxy Tab S10 Ultra 5G", "Samsung Galaxy Tab S10 Ultra",
+    "Samsung Galaxy Tab S10 Plus 5G", "Samsung Galaxy Tab A9 Plus 5G",
+    "Samsung Galaxy Tab S9", "Samsung Galaxy Tab S9 Plus",
+    "Samsung Galaxy Tab S9 FE"
+  ],
+  "Lenovo Tablet": [
+    "Lenovo Tab M10", "Lenovo Tab M9", "Lenovo Tab P11",
+    "Lenovo Yoga Tab 13", "Lenovo Yoga Tab 11"
+  ],
+
+  // 🔹 MacBooks
+  "MacBook Air": [
+    { name: "MacBook Air A2179", image: "/images/macbooks/a2179.png" },
+    { name: "MacBook Air A1465", image: "/images/macbooks/a1465.png" },
+    { name: "MacBook Air A1370", image: "/images/macbooks/a1370.png" },
+    { name: "MacBook Air 2023 A2941", image: "/images/macbooks/a2941.png" },
+    { name: "MacBook Air 2022 A2681", image: "/images/macbooks/a2681.png" }
+  ],
+  "MacBook Pro": [
+    { name: "MacBook Pro A1990", image: "/images/macbooks/pro-a1990.png" },
+    { name: "MacBook Pro A2338", image: "/images/macbooks/pro-a2338.png" },
+    { name: "MacBook Pro A1502", image: "/images/macbooks/pro-a1502.png" },
+    { name: "MacBook Pro 2023", image: "/images/macbooks/pro-2023.png" },
+    { name: "MacBook Pro M2", image: "/images/macbooks/pro-m2.png" }
+  ],
+
+  // 🔹 Phones
   Apple: [
     { name: "iPhone 15 Pro Max", image: "/images/models/15promax.png" },
     { name: "iPhone 15 Pro", image: "/images/models/15pro.png" },
@@ -30,10 +93,7 @@ export const brandModels = {
     { name: "iPhone 6S", image: "/images/models/6s.png" },
     { name: "iPhone 6 Plus", image: "/images/models/6plus.png" },
     { name: "iPhone 6", image: "/images/models/6.png" }
-    
-  ],
-
-
+    ],
   MI: [
     { name: "Redmi Note 13 Pro+", image: "/images/models/note13proplus.png" },
     { name: "Redmi Note 13 Pro", image: "/images/models/note13pro.png" },
@@ -51,9 +111,7 @@ export const brandModels = {
     { name: "Redmi Note 9 Pro", image: "/images/models/note9pro.png" },
     { name: "Redmi Note 9", image: "/images/models/note9.png" },
     { name: "Redmi Note 8 Pro", image: "/images/models/note8pro.png" },
- 
-   
-  ],
+ ],
   Samsung: [
     { name: "Galaxy S25 Ultra", image: "/images/models/s25ultra.png" },
     { name: "Galaxy S25+", image: "/images/models/s25plus.png" },
@@ -84,9 +142,7 @@ export const brandModels = {
    
     { name: "Galaxy M32", image: "/images/models/m32.png" },
     { name: "Galaxy M31", image: "/images/models/m31.png" },
-   
-  ],
-
+   ],
   Vivo: [
     { name: "Vivo X100 Pro", image: "/images/models/x100pro.png" },
     { name: "Vivo X90 Pro+", image: "/images/models/x90proplus.png" },
@@ -99,7 +155,6 @@ export const brandModels = {
     { name: "Vivo V25 Pro", image: "/images/models/v25pro.png" },
     { name: "Vivo V23 Pro", image: "/images/models/v23pro.png" }
   ],
-
   OnePlus: [
     { name: "OnePlus 13", image: "/images/brands/oneplus/13.png" },
     { name: "OnePlus 12R", image: "/images/brands/oneplus/12r.png" },
@@ -111,9 +166,8 @@ export const brandModels = {
     { name: "OnePlus Nord CE4", image: "/images/brands/oneplus/nordce4.png" },
     { name: "OnePlus Nord 3 5g", image: "/images/brands/oneplus/nord3.png" },
     { name: "OnePlus Nord", image: "/images/brands/oneplus/nord.png" },
-  ],
-
- Oppo: [
+ ],
+  Oppo: [
   { name: "Oppo Find X8 Pro", image: "/images/models/findx8pro.png" },
   { name: "Oppo Find X8", image: "/images/models/findx8.png" },
   { name: "Oppo Reno 12 Pro", image: "/images/models/reno12pro.png" },
@@ -123,9 +177,7 @@ export const brandModels = {
   { name: "Oppo A3 Pro", image: "/images/models/a3pro.png" },
   { name: "Oppo A79 5G", image: "/images/models/a79.png" },
   { name: "Oppo A59 5G", image: "/images/models/a59.png" },
-  { name: "Oppo A38", image: "/images/models/a38.png" }
-],
-
+  { name: "Oppo A38", image: "/images/models/a38.png" }],
   Realme: [
     { name: "Realme GT 7 Pro", image: "/images/models/gt7pro.png" },
     { name: "Realme GT 6", image: "/images/models/gt6.png" },
@@ -138,7 +190,6 @@ export const brandModels = {
     { name: "Realme C67 5G", image: "/images/models/c67.png" },
     { name: "Realme C55", image: "/images/models/c55.png" }
   ],
-
   Motorola: [
     { name: "Moto Edge 50 Ultra", image: "/images/models/edge50ultra.png" },
     { name: "Moto Edge 40 Pro", image: "/images/models/edge40pro.png" },
@@ -149,69 +200,6 @@ export const brandModels = {
     { name: "Moto G62 5G", image: "/images/models/g625g.png" },
     { name: "Moto G52", image: "/images/models/g52.png" },
     { name: "Moto E32", image: "/images/models/e32.png" },
-    { name: "Moto E22", image: "/images/models/e22.png" }
-  ],
-
-  Nokia: [
-    { name: "Nokia XR21", image: "/images/models/xr21.png" },
-    { name: "Nokia X30 5G", image: "/images/models/x305g.png" },
-    { name: "Nokia G60 5G", image: "/images/models/g605g.png" },
-    { name: "Nokia G50", image: "/images/models/g50.png" },
-    { name: "Nokia G21", image: "/images/models/g21.png" },
-    { name: "Nokia C32", image: "/images/models/c32.png" },
-    { name: "Nokia C22", image: "/images/models/c22.png" },
-    { name: "Nokia 5.4", image: "/images/models/5_4.png" },
-    { name: "Nokia 3.4", image: "/images/models/3_4.png" },
-    { name: "Nokia 2.4", image: "/images/models/2_4.png" }
-  ],
-
+    { name: "Moto E22", image: "/images/models/e22.png" }],
  
-
-  Asus: [
-    { name: "Asus ROG Phone 9", image: "rogphone9.png" },
-    { name: "Asus ROG Phone 8", image: "rogphone8.png" },
-    { name: "Asus ROG Phone 7", image: "rogphone7.png" },
-    { name: "Asus ROG Phone 6", image: "rogphone6.png" },
-    { name: "Asus ROG Phone 5", image: "rogphone5.png" },
-    { name: "Asus Zenfone 11 Ultra", image: "zenfone11ultra.png" },
-    { name: "Asus Zenfone 10", image: "zenfone10.png" },
-    { name: "Asus Zenfone 9", image: "zenfone9.png" },
-    { name: "Asus Zenfone 8", image: "zenfone8.png" },
-    { name: "Asus Zenfone 7 Pro", image: "zenfone7pro.png" }
-  ],
-
-  Google: [
-    { name: "Pixel 9 Pro XL", image: "pixel9proxl.png" },
-    { name: "Pixel 9 Pro", image: "pixel9pro.png" },
-    { name: "Pixel 9", image: "pixel9.png" },
-    { name: "Pixel 8 Pro", image: "pixel8pro.png" },
-    { name: "Pixel 8", image: "pixel8.png" },
-    { name: "Pixel 7a", image: "pixel7a.png" },
-    { name: "Pixel 7", image: "pixel7.png" },
-    { name: "Pixel 6a", image: "pixel6a.png" },
-    { name: "Pixel 6", image: "pixel6.png" },
-    { name: "Pixel 5a", image: "pixel5a.png" }
-  ],
-
-  Poco: [
-    { name: "Poco F7 Pro", image: "f7pro.png" },
-    { name: "Poco F6 Pro", image: "f6pro.png" },
-    { name: "Poco F5 Pro", image: "f5pro.png" },
-    { name: "Poco X7 Pro", image: "x7pro.png" },
-    { name: "Poco X6 Pro", image: "x6pro.png" },
-    { name: "Poco X5 Pro", image: "x5pro.png" },
-    { name: "Poco M6 Pro", image: "m6pro.png" },
-    { name: "Poco M5", image: "m5.png" },
-    { name: "Poco C65", image: "c65.png" },
-    { name: "Poco C55", image: "c55.png" }
-  ],
-
-  Infinix: [
-    { name: "Infinix Zero 30 5G", image: "zero305g.png" },
-    { name: "Infinix GT 10 Pro", image: "gt10pro.png" },
-    { name: "Infinix Note 30 VIP", image: "note30vip.png" },
-    { name: "Infinix Note 30 Pro", image: "note30pro.png" },
-    { name: "Infinix Note 30", image: "note30.png" },
-  ]
-
 };
