@@ -78,15 +78,19 @@ function Navbar() {
       {/* Main Navigation */}
       <nav className={`navbar navbar-expand-lg bg-black shadow-sm ${slideDown ? "slide-down" : ""}`}>
         <div className="container-fluid">
-          <button
-            className="navbar-toggler text-white border-white"
-            type="button"
-            onClick={() => setIsCollapsed(!isCollapsed)}
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
+         <button
+  className="navbar-toggler text-white border-white"
+  type="button"
+  onClick={() => setIsCollapsed(!isCollapsed)}
+  aria-expanded={!isCollapsed}
+  aria-label="Toggle navigation"
+>
+  <span className="navbar-toggler-icon"></span>
+</button>
 
-          <div className={`collapse navbar-collapse ${!isCollapsed ? "show" : ""}`}>
+
+         <div className={`collapse navbar-collapse ${isCollapsed ? "" : "show"}`}>
+
             <ul className="navbar-nav mx-auto text-center">
               <li className="nav-item">
                 <Link className="nav-link text-white nav-underline" to="/">
