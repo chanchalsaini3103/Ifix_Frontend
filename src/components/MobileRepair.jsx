@@ -66,9 +66,9 @@ function MobileRepair() {
           <p className="text-muted mt-2">
             Experience hassle-free {title} with our transparent, affordable, and convenient solutions.
           </p>
-          <div className="row g-3 mt-3">
+          <div className="row custom-grid g-3 mt-3">
             {services.map((service) => (
-              <div className="col-6 col-md-3 col-lg-2 d-flex" key={service.label}>
+              <div className="grid-col col-md-2" key={service.label}>
                 <Link to={link} className="text-decoration-none w-100">
                   <div className="ipad-card text-center p-3 h-100">
                     <img src={`/images/${service.icon}`} alt={service.label} className="service-icon mb-2" />

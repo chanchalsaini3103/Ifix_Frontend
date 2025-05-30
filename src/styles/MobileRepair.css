@@ -1,4 +1,3 @@
-/* MobileRepair.css */
 
 /* Base Card Styles */
 .service-card,
@@ -41,10 +40,6 @@
 }
 
 /* Section padding */
-.mobile-repair-section,
-.ipad-repair-section,
-.watch-repair-section,
-.macbook-repair-section,
 .container.py-5 {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -66,10 +61,6 @@
     padding: 8px;
   }
 
-  .mobile-repair-section h3,
-  .ipad-repair-section h3,
-  .watch-repair-section h3,
-  .macbook-repair-section h3,
   .container h3 {
     font-size: 1.3rem;
   }
@@ -78,9 +69,23 @@
     font-size: 0.9rem;
   }
 
-  /* Ensure 3-column layout on mobile */
-  .row > .col-6 {
+  /* 3-column grid on phone */
+  .custom-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .grid-col {
+    width: 30%;
     flex: 0 0 auto;
-    width: 33.3333%;
+  }
+}
+
+@media (min-width: 769px) {
+  .grid-col {
+    flex: 0 0 auto;
+    width: auto;
   }
 }
