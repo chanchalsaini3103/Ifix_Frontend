@@ -39,6 +39,7 @@ const watchServices = [
   { icon: "watch/charging.png", label: "Apple Watch Charging Repair" },
   { icon: "watch/crown.svg", label: "Apple Watch Crown Button Repair" },
 ];
+
 const macbookServices = [
   { icon: "macbook/macbook-screen.png", label: "MacBook Screen Repair" },
   { icon: "macbook/battery.png", label: "MacBook Battery Repair" },
@@ -52,7 +53,6 @@ const macbookServices = [
   { icon: "macbook/flexgate.png", label: "MacBook Flexgate Repair" },
   { icon: "macbook/touchbar.png", label: "MacBook Touch Bar Repair" },
 ];
-
 
 function MobileRepair() {
   return (
@@ -68,7 +68,7 @@ function MobileRepair() {
             <p className="text-muted">Get Convenient, Transparent, and Affordable Mobile Repairs right at your doorstep, completed in just 30 minutes.</p>
             <div className="row g-3 mt-3">
               {mobileServices.map((service) => (
-                <div className="col-6 col-md-2" key={service.label}>
+                <div className="col-6 col-sm-4 col-md-3 col-lg-2" key={service.label}>
                   <Link to="/services/mobile-repair" className="text-decoration-none">
                     <div className="service-card text-center p-3">
                       <img src={`/images/${service.icon}`} alt={service.label} className="service-icon mb-2" />
@@ -85,14 +85,19 @@ function MobileRepair() {
       {/* iPad Repair */}
       <div className="ipad-repair-section container py-5">
         <div className="row align-items-center">
-          <div className="col-lg-8">
+          <div className="col-lg-4 text-center order-1 order-lg-2 mb-4 mb-lg-0">
+            <div className="bg-light rounded p-3 shadow-sm">
+              <img src="/images/broken-ipad.webp" alt="Broken iPad" className="img-fluid rounded" />
+            </div>
+          </div>
+          <div className="col-lg-8 order-2 order-lg-1">
             <h3 className="fw-bold text-dark">
               <span className="text-warning border-start border-4 ps-2">iPad Repair</span>
             </h3>
             <p className="text-muted mt-2">Need an iPad Repair? We provide transparent, affordable, and convenient services right at your doorstep.</p>
             <div className="row g-3 mt-4">
               {ipadServices.map((service) => (
-                <div className="col-6 col-md-3 col-lg-2 d-flex" key={service.label}>
+                <div className="col-6 col-sm-4 col-md-3 col-lg-2 d-flex" key={service.label}>
                   <Link to="/services/ipad-repair" className="text-decoration-none w-100">
                     <div className="ipad-card text-center p-3 h-100">
                       <img src={`/images/${service.icon}`} alt={service.label} className="service-icon mb-2" />
@@ -103,30 +108,25 @@ function MobileRepair() {
               ))}
             </div>
           </div>
-          <div className="col-lg-4 text-center mt-4 mt-lg-0">
-            <div className="bg-light rounded p-3 shadow-sm">
-              <img src="/images/broken-ipad.webp" alt="Broken iPad" className="img-fluid rounded" />
-            </div>
-          </div>
         </div>
       </div>
 
       {/* Apple Watch Repair */}
       <div className="watch-repair-section container py-5">
         <div className="row align-items-center">
-          <div className="col-6 col-md-4 col-lg-2-5 text-center mb-4 mb-md-0">
+          <div className="col-md-4 col-lg-3 text-center order-1 mb-4 mb-md-0">
             <div className="bg-light rounded p-3 shadow-sm">
               <img src="/images/broken-watch.webp" alt="Broken Watch" className="img-fluid rounded" />
             </div>
           </div>
-          <div className="col-md-8">
+          <div className="col-md-8 order-2">
             <h3 className="fw-bold text-dark">
               <span className="text-warning border-start border-4 ps-2">Apple Watch Repair</span>
             </h3>
             <p className="text-muted mt-2">Experience hassle-free Apple Watch repairs with our transparent, affordable, and convenient solutions.</p>
             <div className="row g-3 mt-3">
               {watchServices.map((service) => (
-                <div className="col-6 col-md-3 col-lg-2 d-flex" key={service.label}>
+                <div className="col-6 col-sm-4 col-md-3 col-lg-2 d-flex" key={service.label}>
                   <Link to="/services/apple-watch-repair" className="text-decoration-none w-100">
                     <div className="ipad-card text-center p-3 h-100">
                       <img src={`/images/${service.icon}`} alt={service.label} className="service-icon mb-2" />
@@ -140,47 +140,36 @@ function MobileRepair() {
         </div>
       </div>
 
-<div className="macbook-repair-section container py-5">
-  <div className="row align-items-center">
-    {/* Left Content */}
-    <div className="col-lg-8">
-      <h3 className="fw-bold text-dark">
-        <span className="text-warning border-start border-4 ps-2">MacBook Repair</span>
-      </h3>
-      <p className="text-muted mt-2">
-        Experience hassle-free MacBook repairs with our transparent, affordable, and convenient solutions.
-      </p>
-      <div className="row g-3 mt-4">
-        {macbookServices.map((service) => (
-          <div className="col-6 col-md-3 col-lg-2 d-flex" key={service.label}>
-            <Link to="/services/macbook-repair" className="text-decoration-none w-100">
-              <div className="ipad-card text-center p-3 h-100">
-                <img
-                  src={`/images/${service.icon}`}
-                  alt={service.label}
-                  className="service-icon mb-2"
-                />
-                <p className="service-label m-0">{service.label}</p>
-              </div>
-            </Link>
+      {/* MacBook Repair */}
+      <div className="macbook-repair-section container py-5">
+        <div className="row align-items-center">
+          <div className="col-lg-4 text-center order-1 order-lg-2 mb-4 mb-lg-0">
+            <div className="bg-light rounded p-3 shadow-sm">
+              <img src="/images/broken-macbook.webp" alt="Broken MacBook" className="img-fluid rounded" />
+            </div>
           </div>
-        ))}
+          <div className="col-lg-8 order-2 order-lg-1">
+            <h3 className="fw-bold text-dark">
+              <span className="text-warning border-start border-4 ps-2">MacBook Repair</span>
+            </h3>
+            <p className="text-muted mt-2">Experience hassle-free MacBook repairs with our transparent, affordable, and convenient solutions.</p>
+            <div className="row g-3 mt-4">
+              {macbookServices.map((service) => (
+                <div className="col-6 col-sm-4 col-md-3 col-lg-2 d-flex" key={service.label}>
+                  <Link to="/services/macbook-repair" className="text-decoration-none w-100">
+                    <div className="ipad-card text-center p-3 h-100">
+                      <img src={`/images/${service.icon}`} alt={service.label} className="service-icon mb-2" />
+                      <p className="service-label m-0">{service.label}</p>
+                    </div>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-
-    {/* Right Image */}
-    <div className="col-lg-4 text-center mt-4 mt-lg-0">
-      <div className="bg-light rounded p-3 shadow-sm">
-        <img
-          src="/images/broken-macbook.webp"
-          alt="Broken MacBook"
-          className="img-fluid rounded"
-        />
-      </div>
-    </div>
-  </div>
-</div>
     </>
   );
 }
-export default MobileRepair
+
+export default MobileRepair;

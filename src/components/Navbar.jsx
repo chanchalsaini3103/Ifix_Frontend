@@ -99,20 +99,23 @@ function Navbar() {
         </div>
 
         {/* Search visible only on md+ */}
-        <div className="top-bar-right d-none d-md-flex align-items-center mt-2 mt-md-0">
-          <div className="search-wrapper d-flex">
-            <input
-              type="text"
-              className="form-control form-control-sm"
-              placeholder="Search model..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-            />
-            <button onClick={handleSearch} className="btn btn-sm btn-danger ms-1">Search</button>
-          </div>
-          <span className="text-dark fw-semibold ms-3 phone-info">📞 +91 8888668186</span>
-        </div>
+       <div className="top-bar-right d-none d-md-flex align-items-center mt-2 mt-md-0">
+  <div className="search-wrapper d-flex">
+    <input
+      type="text"
+      className="form-control form-control-sm"
+      placeholder="Search model..."
+      value={searchTerm}
+      onChange={(e) => setSearchTerm(e.target.value)}
+      onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+    />
+    <button onClick={handleSearch} className="btn btn-sm btn-danger ms-1">Search</button>
+  </div>
+  <span className="text-dark fw-semibold ms-3 phone-info">
+    📞 +91 8888668186
+  </span>
+</div>
+
       </div>
 
       {/* Search bar visible only on small screens */}

@@ -1,8 +1,8 @@
 /* === Search Section === */
 .search-wrapper {
-  display: flex;
-  align-items: center;
-  width: 100%;
+ max-width: 500px;
+    width: 100%;
+    margin-right: 30px;
 }
 
 /* Add spacing between navbar links */
@@ -74,7 +74,10 @@
   }
 
   .phone-info {
-    display: none;
+    font-size: 16px;
+    white-space: nowrap;        /* Ensures phone stays in one line */
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -88,5 +91,44 @@
 
   .search-wrapper input {
     font-size: 15px;
+    height: 38px;
+  }
+}
+/* For laptop and desktop */
+@media (min-width: 769px) {
+  .top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* spacing between search and phone */
+  }
+
+  .search-wrapper {
+    flex: 1;
+    max-width: 600px;   /* Increased from 500px */
+    width: 100%;
+    display: flex;
+  }
+
+  .search-wrapper input {
+    flex: 1;
+    font-size: 16px;
+    height: 40px;
+    width: 300px;
+    border: grey 1px solid;
+    border-radius: 30px;
+  }
+
+  .search-wrapper button {
+    height: 40px;
+    padding: 0 20px;
+    border: red 1px solid;
+    border-radius: 30px;
+  }
+
+  .phone-info {
+    white-space: nowrap;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
   }
 }

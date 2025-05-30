@@ -1,28 +1,13 @@
-
-
-/* --- SECTION HEADINGS --- */
 .section-title {
   font-weight: 700;
   font-size: 2rem;
   margin-bottom: 1rem;
 }
 
-/* --- CTA / Chat Prompt Section --- */
-.chat-cta-section .btn-success {
-  background-color: #198754 !important; /* Bootstrap green */
-  border-color: #198754 !important;
-  color: white !important;
-}
-
-
-.chat-cta-section h4 {
-  font-weight: 600;
-  font-size: 1.4rem;
-}
-
-/* --- TESTIMONIALS --- */
+/* Testimonials */
 .testimonials-section {
   background: #f9f9f9;
+  text-align: center;
 }
 
 .testimonial-card {
@@ -30,6 +15,7 @@
   border-radius: 10px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
   padding: 20px;
+  width: 100%;
   max-width: 300px;
   text-align: center;
   transition: transform 0.3s ease;
@@ -39,34 +25,32 @@
   transform: translateY(-5px);
 }
 
-.testimonial-card p {
-  font-size: 1rem;
-  color: #333;
+/* Chat Section */
+.chat-cta-section h4 {
+  font-weight: 600;
+  font-size: 1.4rem;
 }
 
-.testimonial-card div {
-  font-size: 1.2rem;
-  margin: 10px 0;
+.chat-cta-section .btn-success {
+  background-color: #198754 !important;
+  border-color: #198754 !important;
+  color: white !important;
 }
 
-.testimonial-card small {
-  color: #666;
-}
-
-/* --- GOOGLE MAP --- */
+/* Map */
 .map-section {
   background-color: #f1f1f1;
 }
 
 .map-wrapper iframe {
-  border: none;
   border-radius: 12px;
   width: 100%;
   height: 450px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border: none;
 }
 
-/* --- FOOTER --- */
+/* Footer */
 .footer-section {
   background-color: #1a1a1a;
   color: #ccc;
@@ -83,4 +67,25 @@
 .footer-section a:hover {
   text-decoration: underline !important;
   color: #f8f9fa;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .why-choose-section {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .text-col {
+    padding-left: 0 !important;
+    padding-top: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .chat-cta-section h4 {
+    font-size: 1.1rem;
+  }
 }

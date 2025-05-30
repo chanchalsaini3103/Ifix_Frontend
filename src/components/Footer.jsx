@@ -5,7 +5,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-text">
-        &copy; {new Date().getFullYear()} iFix Mobile Repair. All rights reserved.
+        &copy; {new Date().getFullYear()} Infocus IT Solution Pvt Ltd. All rights reserved.
       </div>
     </footer>
   );

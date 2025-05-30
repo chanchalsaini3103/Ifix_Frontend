@@ -1,55 +1,4 @@
-
-
-.service-card {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-margin: 0px;
-  min-height: 180px;
-  text-align: center;
-}
-
-.service-card:hover {
-  border-color: #ff6600;
-  box-shadow: 0 4px 10px rgba(255, 102, 0, 0.1);
-}
-
-.service-icon {
-  width: 50px;
-  height: 50px;
-  object-fit: fill;
-  margin-bottom: 0.5rem;
-}
-
-.service-label {
-  font-size: 12px;
-  font-weight: 500;
-  color: #333;
-}
-.service-card, .ipad-card {
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 12px;
-  transition: 0.3s ease;
-  min-height: 150px;
-}
-
-.service-card:hover, .ipad-card:hover {
-  border-color: #ff4b2b;
-  box-shadow: 0 0 10px rgba(255, 75, 43, 0.2);
-}
-
-.service-icon {
-  max-height: 40px;
-  object-fit: contain;
-}
-/* Base Cards */
+/* Base styling for service and ipad cards */
 .service-card,
 .ipad-card {
   background: #fff;
@@ -72,7 +21,7 @@ margin: 0px;
   box-shadow: 0 0 10px rgba(255, 75, 43, 0.2);
 }
 
-/* Icon Size */
+/* Icon style */
 .service-icon {
   max-height: 40px;
   width: auto;
@@ -80,34 +29,35 @@ margin: 0px;
   margin-bottom: 8px;
 }
 
-/* Label styling */
+/* Label style */
 .service-label {
   font-size: 12px;
   font-weight: 500;
   color: #333;
 }
 
-/* Responsive Tweaks */
+/* Section padding */
+.mobile-repair-section,
+.ipad-repair-section,
+.watch-repair-section,
+.macbook-repair-section {
+  padding: 40px 15px;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .service-label {
-    font-size: 11px;
-  }
-
-  .service-icon {
-    max-height: 35px;
-  }
-
   .service-card,
   .ipad-card {
     min-height: 130px;
     padding: 8px;
   }
 
-  .mobile-repair-section,
-  .ipad-repair-section,
-  .watch-repair-section,
-  .macbook-repair-section {
-    padding: 20px 10px;
+  .service-icon {
+    max-height: 35px;
+  }
+
+  .service-label {
+    font-size: 11px;
   }
 
   .mobile-repair-section h3,

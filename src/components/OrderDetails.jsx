@@ -113,7 +113,7 @@ function OrderDetails() {
         <div className="order-popup-modal row bg-white shadow rounded-4 overflow-hidden">
           <div className="col-md-6 p-0">
             <img
-              src="/images/technician.jpg"
+              src="/images/technician.png"
               alt="Technician"
               className="img-fluid h-100 w-100 object-fit-cover"
             />
