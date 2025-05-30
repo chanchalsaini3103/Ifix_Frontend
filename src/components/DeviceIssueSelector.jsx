@@ -6,45 +6,53 @@ import "../styles/DeviceIssues.css";
 
 // Issue Map by category
 const categoryIssueMap = {
-  phones: [
-    { name: "DISPLAY", icon: "/problems/display.png" },
-    { name: "TOUCH GLASS", icon: "/problems/touch.png" },
-    { name: "BATTERY", icon: "/problems/battery.png" },
-    { name: "CHARGING PORT", icon: "/problems/charging.png" },
-    { name: "EAR SPEAKER", icon: "/problems/speaker.png" },
-  ],
+ phones: [
+  { name: "Screen Repair", icon: "/images/problems/screen.svg" },
+  { name: "Back Glass Repair", icon: "/images/problems/backglass.svg" },
+  { name: "Battery Repair", icon: "/images/problems/battery.svg" },
+  { name: "Charging Port Repair", icon: "/images/problems/charging.svg" },
+  { name: "Camera Repair", icon: "/images/problems/camera.svg" },
+  { name: "Speaker Repair", icon: "/images/problems/speaker.svg" },
+  { name: "Mic Repair", icon: "/images/problems/mic.svg" },
+  { name: "Power Button Repair", icon: "/images/problems/power.svg" },
+  { name: "Water Damage Repair", icon: "/images/problems/water.svg" },
+  { name: "Motherboard Repair", icon: "/images/problems/motherboard.svg" },
+  { name: "Software Repair", icon: "/images/problems/software.svg" }
+],
+
   ipads: [
-    { name: "Screen Damage", icon: "/problems/ipad-screen.png" },
-    { name: "Battery Issue", icon: "/problems/ipad-battery.png" },
-    { name: "Water Damage", icon: "/problems/ipad-water.png" },
-    { name: "Charging Issue", icon: "/problems/ipad-charging.png" },
-    { name: "Software Issue", icon: "/problems/ipad-software.png" },
-    { name: "Other", icon: "/problems/ipad-other.png" },
-  ],
+  { name: "Screen Damage", icon: "/images/problems/ipad-screen.svg" },
+  { name: "Battery Issue", icon: "/images/problems/ipad-battery.svg" },
+  { name: "Water Damage", icon: "/images/problems/ipad-water.svg" },
+  { name: "Charging Issue", icon: "/images/problems/ipad-charging.svg" },
+  { name: "Software Issue", icon: "/images/problems/ipad-software.svg" },
+  { name: "Other", icon: "/images/problems/ipad-other.svg" }
+],
+
   tablets: [
-    { name: "Screen Damage", icon: "/problems/tablet-screen.png" },
-    { name: "Battery Issue", icon: "/problems/tablet-battery.png" },
-    { name: "Water Damage", icon: "/problems/tablet-water.png" },
-    { name: "Charging Issue", icon: "/problems/tablet-charging.png" },
-    { name: "Software Issue", icon: "/problems/tablet-software.png" },
-    { name: "Other", icon: "/problems/tablet-other.png" },
+    { name: "Screen Damage", icon: "/images/problems/ipad-screen.svg" },
+    { name: "Battery Issue", icon: "/images/problems/ipad-battery.svg" },
+    { name: "Water Damage", icon: "/images/problems/ipad-water.svg" },
+    { name: "Charging Issue", icon: "/images/problems/ipad-charging.svg" },
+    { name: "Software Issue", icon: "/images/problems/ipad-software.svg" },
+    { name: "Other", icon: "/images/problems/ipad-other.svg" },
   ],
   macbooks: [
-    { name: "Screen Replacement", icon: "/problems/mac-screen.png" },
-    { name: "Battery Issue", icon: "/problems/mac-battery.png" },
-    { name: "Water Damage", icon: "/problems/mac-water.png" },
-    { name: "Keyboard Not Working", icon: "/problems/mac-keyboard.png" },
-    { name: "Charging Problem", icon: "/problems/mac-charging.png" },
-    { name: "Motherboard Issue", icon: "/problems/mac-motherboard.png" },
+    { name: "Screen Replacement", icon: "/images/problems/mac-screen.svg" },
+    { name: "Battery Issue", icon: "/images/problems/mac-battery.svg" },
+    { name: "Water Damage", icon: "/images/problems/mac-water.svg" },
+    { name: "Keyboard Not Working", icon: "/images/problems/mac-keyboard.svg" },
+    { name: "Charging Problem", icon: "/images/problems/mac-charging.svg" },
+    { name: "Other Issue", icon: "/images/problems/mac-motherboard.svg" },
   ],
   watches: [
-    { name: "Screen Repair", icon: "/problems/watch-screen.png" },
-    { name: "Battery Repair", icon: "/problems/watch-battery.png" },
-    { name: "Screen Glass Repair", icon: "/problems/watch-glass.png" },
-    { name: "Back Glass Repair", icon: "/problems/watch-back.png" },
-    { name: "Speaker Repair", icon: "/problems/watch-speaker.png" },
-    { name: "Charging Repair", icon: "/problems/watch-charging.png" },
-    { name: "Crown Button Repair", icon: "/problems/watch-crown.png" },
+    { name: "Screen Repair", icon: "/images/problems/watch-screen.svg" },
+    { name: "Battery Repair", icon: "/images/problems/watch-battery.svg" },
+    { name: "Screen Glass Repair", icon: "/images/problems/watch-glass.svg" },
+    { name: "Back Glass Repair", icon: "/images/problems/watch-back.svg" },
+    { name: "Speaker Repair", icon: "/images/problems/watch-speaker.svg" },
+    { name: "Charging Repair", icon: "/images/problems/watch-charging.svg" },
+    { name: "Crown Button Repair", icon: "/images/problems/watch-crown.svg" },
   ],
 };
 
@@ -132,7 +140,7 @@ function DeviceIssueSelector() {
           </p>
         </div>
       </div>
-      <Footer />
+      
     </>
   );
 }
