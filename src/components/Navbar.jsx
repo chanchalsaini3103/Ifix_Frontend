@@ -88,8 +88,9 @@ function Navbar() {
             <img src="/images/logo.png" alt="Logo" height="40" />
             <span className="text-dark fw-bold fs-5 mb-0">iFix Mobile Repair</span>
           </div>
-          <button
-            className="navbar-toggler d-md-none text-dark border-0"
+         
+            <button className="navbar-toggler d-md-none border-0"
+
             type="button"
             onClick={() => setIsCollapsed(!isCollapsed)}
           >
@@ -156,6 +157,7 @@ function Navbar() {
 
               <li className="nav-item dropdown custom-dropdown" onClick={() => setShowServices(!showServices)}>
                 <span className="nav-link text-white dropdown-toggle">
+
                   Repair Service <FaChevronDown className="ms-1" />
                 </span>
                 {showServices && (
@@ -194,7 +196,7 @@ function Navbar() {
               {!isLoggedIn ? (
                 <>
                   <li className="nav-item">
-                    <Link className="nav-link text-white nav-underline" to="/register">
+                    <Link className="nav-link text-white nav  -underline" to="/register">
                       <FaUserPlus className="me-1" /> Register
                     </Link>
                   </li>

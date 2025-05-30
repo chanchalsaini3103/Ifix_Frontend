@@ -1,53 +1,6 @@
-.service-card {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-margin: 0px;
-  min-height: 180px;
-  text-align: center;
-}
+/* MobileRepair.css */
 
-.service-card:hover {
-  border-color: #ff6600;
-  box-shadow: 0 4px 10px rgba(255, 102, 0, 0.1);
-}
-
-.service-icon {
-  width: 50px;
-  height: 50px;
-  object-fit: fill;
-  margin-bottom: 0.5rem;
-}
-
-.service-label {
-  font-size: 12px;
-  font-weight: 500;
-  color: #333;
-}
-.service-card, .ipad-card {
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 12px;
-  transition: 0.3s ease;
-  min-height: 150px;
-}
-
-.service-card:hover, .ipad-card:hover {
-  border-color: #ff4b2b;
-  box-shadow: 0 0 10px rgba(255, 75, 43, 0.2);
-}
-
-.service-icon {
-  max-height: 40px;
-  object-fit: contain;
-}
-/* Base Cards */
+/* Base Card Styles */
 .service-card,
 .ipad-card {
   background: #fff;
@@ -61,6 +14,7 @@ margin: 0px;
   align-items: center;
   padding: 10px;
   text-align: center;
+  height: 100%;
 }
 
 /* Hover effect */
@@ -70,7 +24,7 @@ margin: 0px;
   box-shadow: 0 0 10px rgba(255, 75, 43, 0.2);
 }
 
-/* Icon Size */
+/* Icon Styling */
 .service-icon {
   max-height: 40px;
   width: auto;
@@ -83,6 +37,17 @@ margin: 0px;
   font-size: 12px;
   font-weight: 500;
   color: #333;
+  text-align: center;
+}
+
+/* Section padding */
+.mobile-repair-section,
+.ipad-repair-section,
+.watch-repair-section,
+.macbook-repair-section,
+.container.py-5 {
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 /* Responsive Tweaks */
@@ -101,17 +66,11 @@ margin: 0px;
     padding: 8px;
   }
 
-  .mobile-repair-section,
-  .ipad-repair-section,
-  .watch-repair-section,
-  .macbook-repair-section {
-    padding: 20px 10px;
-  }
-
   .mobile-repair-section h3,
   .ipad-repair-section h3,
   .watch-repair-section h3,
-  .macbook-repair-section h3 {
+  .macbook-repair-section h3,
+  .container h3 {
     font-size: 1.3rem;
   }
 

@@ -1,27 +1,15 @@
-/* === Top White Bar === */
-.top-white-bar {
-  border-bottom: 1px solid #ddd;
-  position: sticky;
-  top: 0;
-  z-index: 1051;
-  padding: 10px 20px;
-  background-color: #fff;
-}
-
-.logo-text {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-}
-
 /* === Search Section === */
 .search-wrapper {
   display: flex;
   align-items: center;
-  margin-top: 10px;
   width: 100%;
 }
+
+/* Add spacing between navbar links */
+.navbar-nav .nav-item {
+  margin: 0 10px; /* Adjust spacing as needed */
+}
+
 
 .search-wrapper input {
   flex: 1;
@@ -38,69 +26,14 @@
   border-radius: 5px;
 }
 
-/* === Phone Info === */
-.phone-info {
-  margin-left: 16px;
-  font-size: 14px;
-  white-space: nowrap;
-}
-
-/* === Main Navbar === */
-.navbar {
+/* === Toggler Button === */
+.navbar-toggler {
   background-color: black !important;
-  padding: 6px 20px;
-  z-index: 1050;
-  position: sticky;
-  top: 65px;
-  border-bottom: 2px solid #333;
-}
-
-.navbar-nav .nav-link {
-  color: white !important;
-  font-size: 1rem;
-  font-weight: 500;
-  margin: 0 10px;
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.navbar-nav .nav-underline::after {
-  content: "";
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background-color: #0dcaf0;
-  transition: width 0.3s ease-in-out;
-}
-
-.navbar-nav .nav-underline:hover::after {
-  width: 100%;
+  border: none !important;
 }
 
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
-/* === Dropdown Menu === */
-.custom-dropdown .dropdown-menu {
-  background-color: black;
-  border: 1px solid #222;
-  padding: 10px 0;
-  border-radius: 5px;
-}
-
-.custom-dropdown .dropdown-item {
-  color: black;
-  padding: 8px 20px;
-  font-size: 15px;
-}
-
-.custom-dropdown .dropdown-item:hover {
-  background-color: #0dcaf0;
-  color: black;
 }
 
 /* === Responsive Design === */
@@ -136,6 +69,8 @@
   .navbar-nav .dropdown-item {
     width: 100%;
     padding: 10px;
+    padding-left: 10px;
+    margin-left: 10px;
   }
 
   .phone-info {
@@ -147,5 +82,11 @@
   .search-wrapper {
     margin-top: 0;
     justify-content: flex-end;
+    max-width: 500px; /* 🔼 Wider for laptop screens */
+    width: 100%;
+  }
+
+  .search-wrapper input {
+    font-size: 15px;
   }
 }
