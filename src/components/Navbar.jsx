@@ -1,7 +1,9 @@
+// Navbar.jsx
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Navbar.css";
+import Swal from "sweetalert2";
 import {
   FaHome,
   FaTools,
@@ -13,6 +15,7 @@ import {
   FaSignOutAlt,
   FaChevronDown,
 } from "react-icons/fa";
+import { deviceModelMap } from "../data/deviceData";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -21,6 +24,7 @@ function Navbar() {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [showBrands, setShowBrands] = useState(false);
   const [showServices, setShowServices] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     setTimeout(() => setSlideDown(true), 100);
@@ -31,15 +35,41 @@ function Navbar() {
     navigate("/");
   };
 
+  const handleSearch = () => {
+    const query = searchTerm.trim().toLowerCase();
+    let matched = null;
+
+    for (const brand in deviceModelMap) {
+      const models = deviceModelMap[brand];
+      for (const model of models) {
+        const modelName = typeof model === "string" ? model : model.name;
+        if (modelName.toLowerCase() === query) {
+          matched = { brand, model: modelName };
+          break;
+        }
+      }
+      if (matched) break;
+    }
+
+    if (matched) {
+      const brandSlug = matched.brand.toLowerCase().replace(/\s+/g, "-");
+      navigate(`/services/mobile-repair/${brandSlug}`, {
+        state: { brand: matched.brand },
+      });
+    } else {
+      Swal.fire("Not Found", "Model not found. Please try again.", "info");
+    }
+  };
+
   const brands = [
-    "Apple IPhone Repair",
-    "Mi/Xiaomi Repair",
-    "Motorola Repair",
-    "OnePlus Repair",
-    "Oppo Repair",
-    "Vivo Repair",
-    "Samsung Repair",
-    "Realme Repair",
+    { name: "Apple IPhone Repair", path: "apple" },
+    { name: "Samsung Repair", path: "samsung" },
+    { name: "Motorola Repair", path: "motorola" },
+    { name: "Realme Repair", path: "realme" },
+    { name: "Oppo Repair", path: "oppo" },
+    { name: "Vivo Repair", path: "vivo" },
+    { name: "OnePlus Repair", path: "oneplus" },
+    { name: "Mi Repair", path: "mi" },
   ];
 
   const services = [
@@ -52,45 +82,37 @@ function Navbar() {
 
   return (
     <>
-      {/* Top White Bar */}
-      <div className="top-white-bar bg-white shadow-sm py-2 px-4 d-flex align-items-center justify-content-between">
-        <div
-          className="d-flex align-items-center gap-2 logo-text"
-          onClick={() => navigate("/")}
-        >
+      <div className="top-white-bar bg-white shadow-sm py-2 px-4 d-flex flex-column flex-md-row align-items-center justify-content-between">
+        <div className="d-flex align-items-center gap-2 logo-text" onClick={() => navigate("/")}> 
           <img src="/images/logo.png" alt="Logo" height="40" />
           <span className="text-dark fw-bold fs-5 mb-0">iFix Mobile Repair</span>
         </div>
-       <div className="top-bar-right d-flex align-items-center">
-  <div className="search-wrapper">
-    <input
-      type="text"
-      className="form-control form-control-sm"
-      placeholder="Search brand or model..."
-    />
-    <span className="search-icon">🔍</span>
-  </div>
-  <span className="text-dark fw-semibold ms-3 phone-info">📞 +91 8888668186</span>
-</div>
-
+        <div className="top-bar-right d-flex align-items-center mt-2 mt-md-0">
+          <div className="search-wrapper d-flex">
+            <input
+              type="text"
+              className="form-control form-control-sm"
+              placeholder="Search model..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <button onClick={handleSearch} className="btn btn-sm btn-danger ms-1">Search</button>
+          </div>
+          <span className="text-dark fw-semibold ms-3 phone-info">📞 +91 8888668186</span>
+        </div>
       </div>
 
-      {/* Main Navigation */}
       <nav className={`navbar navbar-expand-lg bg-black shadow-sm ${slideDown ? "slide-down" : ""}`}>
         <div className="container-fluid">
-         <button
-  className="navbar-toggler text-white border-white"
-  type="button"
-  onClick={() => setIsCollapsed(!isCollapsed)}
-  aria-expanded={!isCollapsed}
-  aria-label="Toggle navigation"
->
-  <span className="navbar-toggler-icon"></span>
-</button>
+          <button
+            className="navbar-toggler text-white border-white"
+            type="button"
+            onClick={() => setIsCollapsed(!isCollapsed)}
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
 
-
-         <div className={`collapse navbar-collapse ${isCollapsed ? "" : "show"}`}>
-
+          <div className={`collapse navbar-collapse ${isCollapsed ? "" : "show"}`}>
             <ul className="navbar-nav mx-auto text-center">
               <li className="nav-item">
                 <Link className="nav-link text-white nav-underline" to="/">
@@ -98,12 +120,7 @@ function Navbar() {
                 </Link>
               </li>
 
-              {/* Top Brands */}
-              <li
-                className="nav-item dropdown custom-dropdown"
-                onClick={() => setShowBrands(!showBrands)}
-                onMouseLeave={() => setShowBrands(false)}
-              >
+              <li className="nav-item dropdown custom-dropdown" onClick={() => setShowBrands(!showBrands)}>
                 <span className="nav-link text-white dropdown-toggle">
                   Top Brands <FaChevronDown className="ms-1" />
                 </span>
@@ -111,8 +128,8 @@ function Navbar() {
                   <ul className="dropdown-menu show">
                     {brands.map((brand, index) => (
                       <li key={index}>
-                        <Link className="dropdown-item" to={`/brands/${brand.split(" ")[0]}`}>
-                          {brand}
+                        <Link className="dropdown-item" to={`/services/mobile-repair/${brand.path}`}>
+                          {brand.name}
                         </Link>
                       </li>
                     ))}
@@ -120,12 +137,7 @@ function Navbar() {
                 )}
               </li>
 
-              {/* Repair Services */}
-              <li
-                className="nav-item dropdown custom-dropdown"
-                onClick={() => setShowServices(!showServices)}
-                onMouseLeave={() => setShowServices(false)}
-              >
+              <li className="nav-item dropdown custom-dropdown" onClick={() => setShowServices(!showServices)}>
                 <span className="nav-link text-white dropdown-toggle">
                   Repair Service <FaChevronDown className="ms-1" />
                 </span>
@@ -143,15 +155,11 @@ function Navbar() {
               </li>
 
               <li className="nav-item">
-                <Link className="nav-link text-white nav-underline" to="/services">
-                  <FaTools className="me-1" /> Services
-                </Link>
-              </li>
-              <li className="nav-item">
                 <Link className="nav-link text-white nav-underline" to="/request">
                   <FaClipboardList className="me-1" /> Request Repair
                 </Link>
               </li>
+
               {isLoggedIn && (
                 <li className="nav-item">
                   <Link className="nav-link text-white nav-underline" to="/my-requests">
@@ -159,12 +167,14 @@ function Navbar() {
                   </Link>
                 </li>
               )}
+
               <li className="nav-item">
                 <Link className="nav-link text-white nav-underline" to="/contact">
                   <FaPhoneAlt className="me-1" /> Contact
                 </Link>
               </li>
-              {!isLoggedIn && (
+
+              {!isLoggedIn ? (
                 <>
                   <li className="nav-item">
                     <Link className="nav-link text-white nav-underline" to="/register">
@@ -177,8 +187,7 @@ function Navbar() {
                     </Link>
                   </li>
                 </>
-              )}
-              {isLoggedIn && (
+              ) : (
                 <li className="nav-item">
                   <button className="btn btn-outline-light ms-2" onClick={handleLogout}>
                     <FaSignOutAlt className="me-1" /> Logout

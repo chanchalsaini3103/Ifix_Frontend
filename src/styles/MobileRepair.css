@@ -47,3 +47,75 @@ margin: 0px;
   max-height: 40px;
   object-fit: contain;
 }
+/* Base Cards */
+.service-card,
+.ipad-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  transition: 0.3s ease;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Hover effect */
+.service-card:hover,
+.ipad-card:hover {
+  border-color: #ff4b2b;
+  box-shadow: 0 0 10px rgba(255, 75, 43, 0.2);
+}
+
+/* Icon Size */
+.service-icon {
+  max-height: 40px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+/* Label styling */
+.service-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  .service-label {
+    font-size: 11px;
+  }
+
+  .service-icon {
+    max-height: 35px;
+  }
+
+  .service-card,
+  .ipad-card {
+    min-height: 130px;
+    padding: 8px;
+  }
+
+  .mobile-repair-section,
+  .ipad-repair-section,
+  .watch-repair-section,
+  .macbook-repair-section {
+    padding: 20px 10px;
+  }
+
+  .mobile-repair-section h3,
+  .ipad-repair-section h3,
+  .watch-repair-section h3,
+  .macbook-repair-section h3 {
+    font-size: 1.3rem;
+  }
+
+  .text-muted {
+    font-size: 0.9rem;
+  }
+}
