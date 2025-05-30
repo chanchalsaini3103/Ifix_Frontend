@@ -76,19 +76,21 @@ function HeroPage() {
             <p className="lead">
               Get Convenient, Transparent, and Affordable iPhone repairs right at your doorstep, completed in just 30 minutes.
             </p>
-            <div className="repair-cards-grid mt-4 text-dark">
-              {cards.map((item) => (
-                <Link
-                  key={item.label}
-                  to={`/services/${item.label.toLowerCase().replace(/\s+/g, "-")}`}
-                >
-                  <div className="repair-card">
-                    <img src={item.img} alt={item.label} />
-                    <p>{item.label}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
+           <div className="repair-cards-grid mt-4 text-dark">
+  {cards.map((item) => (
+    <Link
+      key={item.label}
+      to={`/services/${item.label.toLowerCase().replace(/\s+/g, "-")}`}
+      className="repair-card-link"
+    >
+      <div className="repair-card">
+        <img src={item.img} alt={item.label} />
+        <p>{item.label}</p>
+      </div>
+    </Link>
+  ))}
+</div>
+
           </div>
 
           <div className="form-card bg-white text-dark p-4 rounded shadow" style={{ maxWidth: "500px", width: "100%" }}>

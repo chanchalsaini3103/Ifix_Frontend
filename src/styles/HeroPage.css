@@ -194,33 +194,40 @@
 }
 
 
+/* Mobile-only: turn it into a 3-column grid */
 @media (max-width: 768px) {
   .repair-cards-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 10px;
+    gap: 12px;
   }
 
-  .repair-cards-grid .col-6 {
-    width: 32%; /* Show 3 cards per row */
+  .repair-card-link {
+    width: 30%; /* ✅ 3 cards per row */
     flex: 0 0 auto;
+    text-decoration: none;
   }
 
   .repair-card {
-    width: 100%;
-    padding: 0.8rem;
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     height: auto;
   }
 
   .repair-card img {
     height: 50px;
+    margin-bottom: 0.5rem;
+    object-fit: contain;
   }
 
   .repair-card p {
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-align: center;
-    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #111;
+    margin: 0;
   }
 }
