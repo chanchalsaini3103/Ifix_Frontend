@@ -18,11 +18,17 @@ const brandImages = {
   Google: "/images/brands/google.png",
   Poco: "/images/brands/poco.png",
   Infinix: "/images/brands/infinix.png",
-  "Apple Watch": "/images/watch.png",
-  "Samsung Tablet": "/images/samsung-tablet.png",
-  "Lenovo Tablet": "/images/lenovo-tablet.png",
-  "MacBook Air": "/images/macbook-air.png",
-  "MacBook Pro": "/images/macbook-pro.png"
+  "Apple Watch": "/images/brands/watch.jpg",
+  "Samsung Tablet": "/images/brands/samsung-tablet.webp",
+  "Lenovo Tablet": "/images/brands/lenovo-tablet.webp",
+  "MacBook Air": "/images/brands/macbook-air.webp",
+  "MacBook Pro": "/images/brands/macbook-pro.webp",
+
+  // ✅ Add these:
+  "iPad": "/images/ipads/ipad.jpg",
+  "iPad Mini": "/images/ipads/ipad-mini.jpg",
+  "iPad Air": "/images/ipads/ipad-air.jpg",
+  "iPad Pro": "/images/ipads/ipad-pro.jpg"
 };
 
 function DeviceBrandSelector({ category }) {

@@ -14,12 +14,11 @@ export const deviceBrands = {
 export const deviceModelMap = {
   // 🔹 Apple Watch
   "Apple Watch": [
-    { name: "Apple Watch Series SE 2", image: "/images/watch/se2.png" },
-    { name: "Apple Watch Series Ultra 2", image: "/images/watch/ultra2.png" },
-    { name: "Apple Watch Series Ultra 1", image: "/images/watch/ultra1.png" },
-    { name: "Apple Watch Series 9", image: "/images/watch/9.png" },
-    { name: "Apple Watch Series 8", image: "/images/watch/8.png" },
-    { name: "Apple Watch Series 7", image: "/images/watch/7.png" }
+    { name: "Apple Watch Series SE 2", image: "/images/watch/se2.webp" },
+    { name: "Apple Watch Series Ultra 2", image: "/images/watch/ultra2.webp" },
+    { name: "Apple Watch Series Ultra 1", image: "/images/watch/ultra1.webp" },
+    { name: "Apple Watch Series 9", image: "/images/watch/9.webp" },
+    { name: "Apple Watch Series 8", image: "/images/watch/8.webp" },
   ],
 
   // 🔹 iPads
@@ -34,32 +33,70 @@ export const deviceModelMap = {
 
   // 🔹 Tablets
   "Samsung Tablet": [
-    "Samsung Galaxy Tab A7", "Samsung Galaxy Tab S10 Plus",
-    "Samsung Galaxy Tab S10 Ultra 5G", "Samsung Galaxy Tab S10 Ultra",
-    "Samsung Galaxy Tab S10 Plus 5G", "Samsung Galaxy Tab A9 Plus 5G",
-    "Samsung Galaxy Tab S9", "Samsung Galaxy Tab S9 Plus",
-    "Samsung Galaxy Tab S9 FE"
-  ],
-  "Lenovo Tablet": [
-    "Lenovo Tab M10", "Lenovo Tab M9", "Lenovo Tab P11",
-    "Lenovo Yoga Tab 13", "Lenovo Yoga Tab 11"
-  ],
+  { name: "Samsung Galaxy Tab A7", image: "/images/tablets/samsung-tab-a7.webp" },
+  { name: "Samsung Galaxy Tab S10 Plus", image: "/images/tablets/samsung-tab-s10-plus.webp" },
+  { name: "Samsung Galaxy Tab S10 Ultra 5G", image: "/images/tablets/samsung-tab-s10-ultra-5g.webp" },
+  { name: "Samsung Galaxy Tab S10 Ultra", image: "/images/tablets/samsung-tab-s10-ultra.webp" },
+  { name: "Samsung Galaxy Tab S10 Plus 5G", image: "/images/tablets/samsung-tab-s10-plus-5g.webp" },
+  { name: "Samsung Galaxy Tab A9 Plus 5G", image: "/images/tablets/samsung-tab-a9-plus-5g.webp" },
+  { name: "Samsung Galaxy Tab S9", image: "/images/tablets/samsung-tab-s9.webp" },
+  { name: "Samsung Galaxy Tab S9 Plus", image: "/images/tablets/samsung-tab-s9-plus.webp" },
+  { name: "Samsung Galaxy Tab S9 FE", image: "/images/tablets/samsung-tab-s9-fe.webp" }
+],
+
+"Lenovo Tablet": [
+  { name: "Lenovo Tab M10", image: "/images/tablets/lenovo-tab-m10.webp" },
+  { name: "Lenovo Tab M9", image: "/images/tablets/lenovo-tab-m9.webp" },
+  { name: "Lenovo Tab P11", image: "/images/tablets/lenovo-tab-p11.webp" },
+  { name: "Lenovo Yoga Tab 13", image: "/images/tablets/lenovo-yoga-tab-13.webp" },
+  { name: "Lenovo Yoga Tab 11", image: "/images/tablets/lenovo-yoga-tab-11.webp" }
+],
 
   // 🔹 MacBooks
   "MacBook Air": [
-    { name: "MacBook Air A2179", image: "/images/macbooks/a2179.png" },
-    { name: "MacBook Air A1465", image: "/images/macbooks/a1465.png" },
-    { name: "MacBook Air A1370", image: "/images/macbooks/a1370.png" },
-    { name: "MacBook Air 2023 A2941", image: "/images/macbooks/a2941.png" },
-    { name: "MacBook Air 2022 A2681", image: "/images/macbooks/a2681.png" }
+    { name: "MacBook Air A2179", image: "/images/macbooks/a2179.webp" },
+    { name: "MacBook Air A1465", image: "/images/macbooks/a1465.webp" },
+    { name: "MacBook Air A1370", image: "/images/macbooks/a1370.webp" },
+    { name: "MacBook Air 2023 A2941", image: "/images/macbooks/a2941.webp" },
+    { name: "MacBook Air 2022 A2681", image: "/images/macbooks/a2681.webp" }
   ],
   "MacBook Pro": [
-    { name: "MacBook Pro A1990", image: "/images/macbooks/pro-a1990.png" },
-    { name: "MacBook Pro A2338", image: "/images/macbooks/pro-a2338.png" },
-    { name: "MacBook Pro A1502", image: "/images/macbooks/pro-a1502.png" },
-    { name: "MacBook Pro 2023", image: "/images/macbooks/pro-2023.png" },
-    { name: "MacBook Pro M2", image: "/images/macbooks/pro-m2.png" }
+    { name: "MacBook Pro A1990", image: "/images/macbooks/pro-a1990.webp" },
+    { name: "MacBook Pro A2338", image: "/images/macbooks/pro-a2338.webp" },
+    { name: "MacBook Pro A1502", image: "/images/macbooks/pro-a1502.webp" },
+    { name: "MacBook Pro 2023", image: "/images/macbooks/pro-2023.webp" },
+    { name: "MacBook Pro M2", image: "/images/macbooks/pro-m2.webp" }
   ],
+
+iPad: [
+  { name: "iPad 10th Generation", image: "/images/ipad/10th-gen.webp" },
+  { name: "iPad 9th Generation", image: "/images/ipad/9th-gen.webp" },
+  { name: "iPad 8th Generation", image: "/images/ipad/8th-gen.webp" },
+  { name: "iPad 7th Generation", image: "/images/ipad/7th-gen.webp" },
+  { name: "iPad 6th Generation", image: "/images/ipad/6th-gen.webp" },
+  { name: "iPad 5th Generation", image: "/images/ipad/5th-gen.webp" },
+  { name: "iPad 4th Generation", image: "/images/ipad/4th-gen.webp" },
+   { name: "iPad 3th Generation", image: "/images/ipad/3th-gen.webp" },
+    { name: "iPad 2th Generation", image: "/images/ipad/2th-gen.webp" },
+     { name: "iPad 1th Generation", image: "/images/ipad/1th-gen.webp" }
+],
+"iPad Mini": [
+  { name: "iPad Mini 6", image: "/images/ipad/mini-6.webp" },
+  { name: "iPad Mini 5", image: "/images/ipad/mini-5.webp" },
+  { name: "iPad Mini 4", image: "/images/ipad/mini-4.webp" }
+],
+
+"iPad Air": [
+  { name: "iPad Air 5", image: "/images/ipad/air-5.webp" },
+  { name: "iPad Air 4", image: "/images/ipad/air-4.webp" },
+  { name: "iPad Air 3", image: "/images/ipad/air-3.webp" }
+],
+"iPad Pro": [
+  { name: "iPad Pro 12.9", image: "/images/ipad/pro-12.9.webp" },
+  { name: "iPad Pro 11", image: "/images/ipad/pro-11.webp" },
+  { name: "iPad Pro 10.5", image: "/images/ipad/pro-10.5.webp" }
+],
+
 
   // 🔹 Phones
   Apple: [
