@@ -36,7 +36,7 @@
 .hero-form-section .btn-danger {
   background: linear-gradient(to right, #ff416c, #ff4b2b);
   border: none;
-  border-radius: 10px;
+  border-radius: 20px;
   font-size: 1rem;
   font-weight: 500;
   padding: 0.6rem 2rem;
@@ -192,40 +192,43 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-
-/* Mobile-only: turn it into a 3-column grid */
 @media (max-width: 768px) {
   .repair-cards-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 12px;
+    gap: 10px;
   }
 
   .repair-card-link {
-    width: 30%; /* ✅ 3 cards per row */
+    width: 30%;
+    aspect-ratio: 1 / 1; /* ✅ Perfect square */
     flex: 0 0 auto;
     text-decoration: none;
   }
 
   .repair-card {
+    height: 100%;
+    width: 100%;
     background: #fff;
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: 12px;
+    padding: 0.8rem;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .repair-card img {
-    height: 50px;
-    margin-bottom: 0.5rem;
+    height: 40px;
     object-fit: contain;
+    margin-bottom: 0.5rem;
   }
 
   .repair-card p {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
     color: #111;
     margin: 0;
