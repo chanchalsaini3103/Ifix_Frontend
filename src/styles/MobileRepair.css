@@ -77,4 +77,10 @@
   .text-muted {
     font-size: 0.9rem;
   }
+
+  /* Ensure 3-column layout on mobile */
+  .row > .col-6 {
+    flex: 0 0 auto;
+    width: 33.3333%;
+  }
 }
