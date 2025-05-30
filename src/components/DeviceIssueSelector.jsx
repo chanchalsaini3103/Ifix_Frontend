@@ -1,47 +1,78 @@
 import React from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Navbar from "./Navbar";
-import Footer from "./Footer"; 
-
+import Footer from "./Footer";
 import "../styles/DeviceIssues.css";
 
-const issueMap = {
+// Issue Map by category
+const categoryIssueMap = {
   phones: [
     { name: "DISPLAY", icon: "/problems/display.png" },
     { name: "TOUCH GLASS", icon: "/problems/touch.png" },
     { name: "BATTERY", icon: "/problems/battery.png" },
     { name: "CHARGING PORT", icon: "/problems/charging.png" },
-    { name: "EAR SPEAKER", icon: "/problems/speaker.png" }
+    { name: "EAR SPEAKER", icon: "/problems/speaker.png" },
   ],
   ipads: [
-    "Screen Damage", "Battery Issue", "Water Damage", "Charging Issue", "Software Issue", "Other"
+    { name: "Screen Damage", icon: "/problems/ipad-screen.png" },
+    { name: "Battery Issue", icon: "/problems/ipad-battery.png" },
+    { name: "Water Damage", icon: "/problems/ipad-water.png" },
+    { name: "Charging Issue", icon: "/problems/ipad-charging.png" },
+    { name: "Software Issue", icon: "/problems/ipad-software.png" },
+    { name: "Other", icon: "/problems/ipad-other.png" },
   ],
   tablets: [
-    "Screen Damage", "Battery Issue", "Water Damage", "Charging Issue", "Software Issue", "Other"
+    { name: "Screen Damage", icon: "/problems/tablet-screen.png" },
+    { name: "Battery Issue", icon: "/problems/tablet-battery.png" },
+    { name: "Water Damage", icon: "/problems/tablet-water.png" },
+    { name: "Charging Issue", icon: "/problems/tablet-charging.png" },
+    { name: "Software Issue", icon: "/problems/tablet-software.png" },
+    { name: "Other", icon: "/problems/tablet-other.png" },
   ],
   macbooks: [
-    "Screen Replacement", "Battery Issue", "Water Damage", "Keyboard Not Working", "Charging Problem", "Motherboard Issue"
+    { name: "Screen Replacement", icon: "/problems/mac-screen.png" },
+    { name: "Battery Issue", icon: "/problems/mac-battery.png" },
+    { name: "Water Damage", icon: "/problems/mac-water.png" },
+    { name: "Keyboard Not Working", icon: "/problems/mac-keyboard.png" },
+    { name: "Charging Problem", icon: "/problems/mac-charging.png" },
+    { name: "Motherboard Issue", icon: "/problems/mac-motherboard.png" },
   ],
   watches: [
-    "Screen Repair", "Battery Repair", "Screen Glass Repair", "Back Glass Repair",
-    "Speaker Repair", "Charging Repair", "Crown Button Repair"
-  ]
+    { name: "Screen Repair", icon: "/problems/watch-screen.png" },
+    { name: "Battery Repair", icon: "/problems/watch-battery.png" },
+    { name: "Screen Glass Repair", icon: "/problems/watch-glass.png" },
+    { name: "Back Glass Repair", icon: "/problems/watch-back.png" },
+    { name: "Speaker Repair", icon: "/problems/watch-speaker.png" },
+    { name: "Charging Repair", icon: "/problems/watch-charging.png" },
+    { name: "Crown Button Repair", icon: "/problems/watch-crown.png" },
+  ],
 };
 
-function DeviceIssueSelector({ deviceType }) {
+// Category resolver based on brand name
+const resolveCategoryByBrand = (brand) => {
+  const lower = brand.toLowerCase();
+
+  if (lower.includes("watch")) return "watches";
+  if (lower.includes("macbook")) return "macbooks";
+  if (lower.includes("ipad")) return "ipads";
+  if (lower.includes("tablet")) return "tablets";
+  return "phones";
+};
+
+function DeviceIssueSelector() {
   const { brand, model } = useParams();
   const { state } = useLocation();
   const navigate = useNavigate();
 
   const finalBrand = state?.brand || brand;
   const finalModel = state?.model || model;
-
-  const issues = issueMap[deviceType] || [];
+  const deviceType = resolveCategoryByBrand(finalBrand);
+  const issues = categoryIssueMap[deviceType] || [];
 
   const handleClick = (issue) => {
     const issueName = typeof issue === "string" ? issue : issue.name;
     navigate("/order-details", {
-      state: { brand: finalBrand, model: finalModel, issue: issueName }
+      state: { brand: finalBrand, model: finalModel, issue: issueName },
     });
   };
 
@@ -61,16 +92,17 @@ function DeviceIssueSelector({ deviceType }) {
         <div className="d-flex flex-wrap justify-content-center gap-3 mb-5">
           {issues.map((issue, index) => (
             <div
-              key={index}
+              key={`${issue.name}-${index}`}
               className="card p-3 text-center shadow-sm issue-card"
               style={{ width: "200px", cursor: "pointer" }}
               onClick={() => handleClick(issue)}
             >
-              {typeof issue === "object" && (
+              {issue.icon && (
                 <img
                   src={issue.icon}
                   alt={issue.name}
                   className="img-fluid mb-2"
+                  style={{ maxHeight: "80px", objectFit: "contain" }}
                 />
               )}
               <p className="fw-semibold">
@@ -80,26 +112,23 @@ function DeviceIssueSelector({ deviceType }) {
           ))}
         </div>
 
-        {/* 👉 Description Box Below Issues */}
         <div className="card shadow-sm p-4 text-start bg-light border border-danger-subtle rounded-4">
           <h5 className="fw-bold mb-3 text-dark">
             iFix: Your Trusted Partner for {finalModel} Repair Services
           </h5>
           <p>
             We provide doorstep {finalModel} repair service at your home, office,
-            or any location of your preference at your preferred time. We provide
+            or any location of your preference at your preferred time. We offer
             same-day service.
           </p>
           <p>
-            We only use high-quality spare parts at very reasonable prices. All
-            the technicians at iFix are highly qualified and trained in their field.
-            iFix offers up to 6 months warranty on every repair and mobile spare
-            parts replaced by us.
+            We use high-quality spare parts at very reasonable prices. All iFix
+            technicians are highly trained professionals.
           </p>
           <p>
-            The customer needs to hand over the old spare parts to the technician
-            post repair. Physical damage and any kind of liquid damage is not
-            covered under warranty.
+            iFix offers up to 6 months warranty on every repair and replacement
+            of mobile parts. Physical or liquid damage is not covered under
+            warranty.
           </p>
         </div>
       </div>

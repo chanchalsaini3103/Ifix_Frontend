@@ -13,11 +13,7 @@ const brandImages = {
   Oppo: "/images/brands/oppo.png",
   Realme: "/images/brands/realme.png",
   Motorola: "/images/brands/motorola.png",
-  Nokia: "/images/brands/nokia.png",
-  Asus: "/images/brands/asus.png",
-  Google: "/images/brands/google.png",
-  Poco: "/images/brands/poco.png",
-  Infinix: "/images/brands/infinix.png",
+  
   "Apple Watch": "/images/brands/watch.jpg",
   "Samsung Tablet": "/images/brands/samsung-tablet.webp",
   "Lenovo Tablet": "/images/brands/lenovo-tablet.webp",

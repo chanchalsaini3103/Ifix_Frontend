@@ -120,20 +120,21 @@ function HeroPage() {
       </div>
       <div className="scrolling-info-bar py-3 bg-white">
   <div className="scrolling-items">
-    {[...Array(2)].flatMap(() =>
-      [
-        { icon: "bi-shield-check", text: "Upto 6 Month Warranty" },
-        { icon: "bi-tools", text: "Onsite Repair" },
-        { icon: "bi-clock-history", text: "Quick Turn around time" },
-        { icon: "bi-award", text: "High Quality Parts" },
-        { icon: "bi-shield-check", text: "Upto 6 Month Warranty" },
-        { icon: "bi-tools", text: "Onsite Repair" },
-      ].map((item, i) => (
-        <div className="scroll-item" key={i}>
-          <i className={`bi ${item.icon} me-2`}></i> {item.text}
-        </div>
-      ))
-    )}
+    {[...Array(2)].flatMap((_, outerIndex) =>
+  [
+    { icon: "bi-shield-check", text: "Upto 6 Month Warranty" },
+    { icon: "bi-tools", text: "Onsite Repair" },
+    { icon: "bi-clock-history", text: "Quick Turn around time" },
+    { icon: "bi-award", text: "High Quality Parts" },
+    { icon: "bi-shield-check", text: "Upto 6 Month Warranty" },
+    { icon: "bi-tools", text: "Onsite Repair" },
+  ].map((item, innerIndex) => (
+    <div className="scroll-item" key={`${outerIndex}-${innerIndex}`}>
+      <i className={`bi ${item.icon} me-2`}></i> {item.text}
+    </div>
+  ))
+)}
+
   </div>
 </div>
 

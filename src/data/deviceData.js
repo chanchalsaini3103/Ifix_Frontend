@@ -3,7 +3,7 @@
 export const deviceBrands = {
   phones: [
     "Apple", "MI", "Samsung", "Vivo", "OnePlus", "Oppo", "Realme",
-    "Motorola", "Nokia", "Asus", "Google", "Poco", "Infinix"
+    "Motorola"
   ],
   tablets: ["Samsung Tablet", "Lenovo Tablet"],
   ipads: ["iPad", "iPad Mini", "iPad Air", "iPad Pro"],
