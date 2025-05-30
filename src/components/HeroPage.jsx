@@ -118,6 +118,47 @@ function HeroPage() {
           </div>
         </div>
       </div>
+      <div className="scrolling-info-bar py-3 bg-white">
+  <div className="scrolling-items">
+    {[...Array(2)].flatMap(() =>
+      [
+        { icon: "bi-shield-check", text: "Upto 6 Month Warranty" },
+        { icon: "bi-tools", text: "Onsite Repair" },
+        { icon: "bi-clock-history", text: "Quick Turn around time" },
+        { icon: "bi-award", text: "High Quality Parts" },
+        { icon: "bi-shield-check", text: "Upto 6 Month Warranty" },
+        { icon: "bi-tools", text: "Onsite Repair" },
+      ].map((item, i) => (
+        <div className="scroll-item" key={i}>
+          <i className={`bi ${item.icon} me-2`}></i> {item.text}
+        </div>
+      ))
+    )}
+  </div>
+</div>
+
+{/* Experience Banner Section */}
+<div className="experience-banner my-5">
+  <div className="container d-flex align-items-center justify-content-between flex-column flex-md-row">
+    {/* Left Technician Image */}
+    <div className="technician-img">
+      <img src="/images/tech-left.png" alt="Technician 1" className="img-fluid" />
+    </div>
+
+    {/* Center Text */}
+    <div className="experience-text text-center mx-4">
+      <h6 className="text-success fw-bold">10 YEARS' EXCLUSIVE</h6>
+      <h2 className="fw-bold text-gradient">SMART DEVICE<br />REPAIR SERVICE</h2>
+      <h5 className="text-gradient fw-semibold mt-2">EXPERIENCE</h5>
+    </div>
+
+    {/* Right Technician Image */}
+    <div className="technician-img">
+      <img src="/images/tech-right.png" alt="Technician 2" className="img-fluid" />
+    </div>
+  </div>
+</div>
+
       <MobileRepair />
       <WhyUs />
     </>
