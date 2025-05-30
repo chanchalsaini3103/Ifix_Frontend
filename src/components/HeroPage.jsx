@@ -53,15 +53,33 @@ function HeroPage() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const payload = { ...formData, userId };
-      await axios.post(`${BASE_URL}/api/repair/submit`, payload);
-      Swal.fire("Success!", "Repair request submitted successfully!", "success");
-    } catch (err) {
-      Swal.fire("Error", "Failed to submit repair request.", "error");
-    }
-  };
+  e.preventDefault();
+
+  const uid = localStorage.getItem("userId");
+  if (!uid) {
+    Swal.fire({
+      title: "Login Required",
+      text: "Please login to submit your request.",
+      icon: "warning",
+      confirmButtonText: "Go to Login",
+      confirmButtonColor: "#ff007f"
+    }).then(() => {
+      localStorage.setItem("pendingForm", JSON.stringify(formData));
+      window.location.href = "/login";
+    });
+    return;
+  }
+
+  const payload = { ...formData, userId: uid };
+
+  try {
+    await axios.post(`${BASE_URL}/api/repair/submit`, payload);
+    Swal.fire("Success!", "Repair request submitted successfully!", "success");
+  } catch (err) {
+    Swal.fire("Error", "Failed to submit repair request.", "error");
+  }
+};
+
 
   return (
     <>
@@ -137,6 +155,15 @@ function HeroPage() {
 
   </div>
 </div>
+{/* Floating WhatsApp Button */}
+<a
+  href="https://wa.me/918888668186"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="whatsapp-float"
+>
+  <img src="/images/whatsapp-icon.png" alt="WhatsApp" />
+</a>
 
 {/* Experience Banner Section */}
 <div className="experience-banner my-5">

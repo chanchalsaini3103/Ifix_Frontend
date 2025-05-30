@@ -324,4 +324,23 @@
   100% {
     transform: translateX(-50%);
   }
+}.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px; /* RIGHT corner */
+  z-index: 9999;
+  background-color: white;
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-float img {
+  width: 40px;
+  height: 40px;
 }

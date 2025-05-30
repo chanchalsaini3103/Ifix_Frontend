@@ -173,11 +173,6 @@ function Navbar() {
                 )}
               </li>
 
-              <li className="nav-item">
-                <Link className="nav-link text-white nav-underline" to="/request">
-                  <FaClipboardList className="me-1" /> Request Repair
-                </Link>
-              </li>
 
               {isLoggedIn && (
                 <li className="nav-item">

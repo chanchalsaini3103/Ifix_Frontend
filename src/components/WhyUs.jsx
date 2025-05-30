@@ -38,19 +38,7 @@ function WhyUs() {
         </div>
       </div>
 
-      {/* Chat Prompt */}
-      <div className="chat-cta-section text-center py-5">
-        <h4>Need help? Chat with us now</h4>
-        <a
-          href="https://wa.me/8888668186"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-success mt-2"
-        >
-          Chat on WhatsApp
-        </a>
-      </div>
-
+      
       {/* Testimonials */}
       <div className="testimonials-section py-5">
         <h2 className="text-center">What Our Customers Say</h2>
@@ -72,6 +60,18 @@ function WhyUs() {
             <small>- Sneha Verma</small>
           </div>
         </div>
+      </div>
+{/* Chat Prompt */}
+      <div className="chat-cta-section text-center py-5">
+        <h4>Need help? Chat with us now</h4>
+        <a
+          href="https://wa.me/8888668186"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-success mt-2"
+        >
+          Chat on WhatsApp
+        </a>
       </div>
 
        <div className="map-section py-5 text-center">

@@ -8,10 +8,12 @@
 }
 
 /* --- CTA / Chat Prompt Section --- */
-.chat-cta-section {
-  background-color: #f8f9fa;
-  border-top: 2px solid #e0e0e0;
+.chat-cta-section .btn-success {
+  background-color: #198754 !important; /* Bootstrap green */
+  border-color: #198754 !important;
+  color: white !important;
 }
+
 
 .chat-cta-section h4 {
   font-weight: 600;

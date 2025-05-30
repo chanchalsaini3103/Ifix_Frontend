@@ -100,6 +100,10 @@ iPad: [
 
   // 🔹 Phones
   Apple: [
+    { name: "iPhone 16 Pro Max", image: "/images/models/16promax.webp" },
+{ name: "iPhone 16 Pro", image: "/images/models/16pro.webp" },
+{ name: "iPhone 16 Plus", image: "/images/models/16plus.webp" },
+{ name: "iPhone 16", image: "/images/models/16.webp" },
     { name: "iPhone 15 Pro Max", image: "/images/models/15promax.png" },
     { name: "iPhone 15 Pro", image: "/images/models/15pro.png" },
     { name: "iPhone 15 Plus", image: "/images/models/15plus.png" },
