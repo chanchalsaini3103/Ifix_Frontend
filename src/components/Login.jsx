@@ -33,30 +33,31 @@ function Login() {
       Swal.fire("Login Failed", "Invalid email or password", "error");
     }
   };
+const handleForgotPassword = async () => {
+  const { value: phone } = await Swal.fire({
+    title: "Forgot Password?",
+    input: "tel",
+    inputLabel: "Enter your registered phone number",
+    inputPlaceholder: "+91XXXXXXXXXX",
+    showCancelButton: true,
+    confirmButtonText: "Send OTP",
+  });
 
-  const handleForgotPassword = async () => {
-    const { value: email } = await Swal.fire({
-      title: "Forgot Password?",
-      input: "email",
-      inputLabel: "Enter your registered email",
-      inputPlaceholder: "you@example.com",
-      showCancelButton: true,
-      confirmButtonText: "Send Reset Link",
-    });
-
-    if (email) {
-      try {
-        const res = await axios.post(`${BASE_URL}/api/auth/forgot-password`, { email });
-        Swal.fire("Sent!", res.data, "success");
-      } catch (err) {
-        if (err.response && err.response.status === 404) {
-          Swal.fire("Email Not Found", "This email is not registered.", "warning");
-        } else {
-          Swal.fire("Error", "Failed to send reset link", "error");
-        }
-      }
+  if (phone) {
+    try {
+      await axios.post(`${BASE_URL}/api/auth/forgot-password-otp`, { phone });
+      Swal.fire({
+        title: "OTP Sent!",
+        text: "Please check your phone for the OTP.",
+        icon: "success",
+      }).then(() => {
+        navigate("/reset-password-otp", { state: { phone } });
+      });
+    } catch (err) {
+      Swal.fire("Error", "Failed to send OTP", "error");
     }
-  };
+  }
+};
 
   return (
     <>

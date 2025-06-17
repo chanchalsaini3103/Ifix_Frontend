@@ -15,13 +15,14 @@ import OrderDetails from "./components/OrderDetails";
 import AdminDashboard from "./components/AdminDashboard";
 import Footer from "./components/Footer";
 import MyRepairRequests from "./components/MyRepairRequests";
-import ResetPassword from "./components/ResetPassword";
+
 import PhoneRegister from "./components/PhoneRegister";
 import AdminEditModels from "./components/AdminEditModels";
 import DeviceBrandSelector from "./components/DeviceBrandSelector";
 import DeviceModelSelector from "./components/DeviceModelSelector";
 import DeviceIssueSelector from "./components/DeviceIssueSelector";
 import Navbar from "./components/Navbar";
+import ResetPasswordOtp from "./components/ResetPasswordOtp";
 
 function BrandPage() {
   const { brandName } = useParams();
@@ -49,7 +50,8 @@ function App() {
 
             <Route path="/order-details" element={<OrderDetails />} />
             <Route path="/my-requests" element={<MyRepairRequests />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/reset-password-otp" element={<ResetPasswordOtp />} />
+
             <Route path="/admin/edit-models" element={<AdminEditModels />} />
 
             <Route
