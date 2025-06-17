@@ -113,7 +113,7 @@ function AboutContact() {
             <div className="col-md-4 mb-3">
               <h6>Contact Us</h6>
               <p className="mb-1">📍 Pimpri, Pune, Maharashtra</p>
-              <p className="mb-1">📞 +91 8888668186</p>
+              <p className="mb-1">📞 +91 7821820239</p>
               <p className="mb-1">✉️ support@ifixmobiles.in</p>
               <a
                 href="https://maps.app.goo.gl/XRLjtocjKB6tcox1A"
