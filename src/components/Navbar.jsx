@@ -1,4 +1,3 @@
-// Navbar.jsx
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -81,44 +80,39 @@ function Navbar() {
   ];
 
   return (
-    <>
+    <div className="navbar-wrapper fixed-top">
+      {/* White Top Bar */}
       <div className="top-white-bar bg-white shadow-sm py-2 px-3 px-md-4 d-flex flex-column flex-md-row align-items-center justify-content-between">
         <div className="d-flex w-100 justify-content-between align-items-center">
-          <div className="d-flex align-items-center gap-2 logo-text" onClick={() => navigate("/")}> 
+          <div className="d-flex align-items-center gap-2 logo-text" onClick={() => navigate("/")}>
             <img src="/images/logo.png" alt="Logo" height="40" />
             <span className="text-dark fw-bold fs-5 mb-0">iFix Mobile Repair</span>
           </div>
-         
-            <button className="navbar-toggler d-md-none border-0"
-
-            type="button"
-            onClick={() => setIsCollapsed(!isCollapsed)}
-          >
+          <button className="navbar-toggler d-md-none border-0" type="button" onClick={() => setIsCollapsed(!isCollapsed)}>
             <span className="navbar-toggler-icon" />
           </button>
         </div>
 
-        {/* Search visible only on md+ */}
-       <div className="top-bar-right d-none d-md-flex align-items-center mt-2 mt-md-0">
-  <div className="search-wrapper d-flex">
-    <input
-      type="text"
-      className="form-control form-control-sm"
-      placeholder="Search model..."
-      value={searchTerm}
-      onChange={(e) => setSearchTerm(e.target.value)}
-      onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-    />
-    <button onClick={handleSearch} className="btn btn-sm btn-danger ms-1">Search</button>
-  </div>
-  <span className="text-dark fw-semibold ms-3 phone-info">
-    📞 +91 8888668186
-  </span>
-</div>
-
+        {/* Search (visible on md+) */}
+        <div className="top-bar-right d-none d-md-flex align-items-center mt-2 mt-md-0">
+          <div className="search-wrapper d-flex">
+            <input
+              type="text"
+              className="form-control form-control-sm"
+              placeholder="Search model..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+            />
+            <button onClick={handleSearch} className="btn btn-sm btn-danger ms-1">Search</button>
+          </div>
+          <span className="text-dark fw-semibold ms-3 phone-info">
+            📞 +91 7821820239
+          </span>
+        </div>
       </div>
 
-      {/* Search bar visible only on small screens */}
+      {/* Search bar for mobile */}
       <div className="d-flex d-md-none px-3 py-2 bg-white border-bottom">
         <input
           type="text"
@@ -131,6 +125,7 @@ function Navbar() {
         <button onClick={handleSearch} className="btn btn-sm btn-danger ms-2">Search</button>
       </div>
 
+      {/* Black Main Navbar */}
       <nav className={`navbar navbar-expand-lg bg-black shadow-sm ${slideDown ? "slide-down" : ""}`}>
         <div className="container-fluid">
           <div className={`collapse navbar-collapse ${isCollapsed ? "" : "show"}`}>
@@ -160,7 +155,6 @@ function Navbar() {
 
               <li className="nav-item dropdown custom-dropdown" onClick={() => setShowServices(!showServices)}>
                 <span className="nav-link text-white dropdown-toggle">
-
                   Repair Service <FaChevronDown className="ms-1" />
                 </span>
                 {showServices && (
@@ -175,7 +169,6 @@ function Navbar() {
                   </ul>
                 )}
               </li>
-
 
               {isLoggedIn && (
                 <li className="nav-item">
@@ -194,7 +187,7 @@ function Navbar() {
               {!isLoggedIn ? (
                 <>
                   <li className="nav-item">
-                    <Link className="nav-link text-white nav  -underline" to="/register">
+                    <Link className="nav-link text-white nav-underline" to="/register">
                       <FaUserPlus className="me-1" /> Register
                     </Link>
                   </li>
@@ -215,7 +208,7 @@ function Navbar() {
           </div>
         </div>
       </nav>
-    </>
+    </div>
   );
 }
 

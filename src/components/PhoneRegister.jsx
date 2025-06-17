@@ -74,7 +74,7 @@ function PhoneRegister() {
           </div>
 
           <div className="auth-right">
-            <h4 className="text-center mb-4">Phone OTP Registration</h4>
+            <h4 className="text-center mb-4">Register Please !</h4>
 
             {step === 1 && (
               <>

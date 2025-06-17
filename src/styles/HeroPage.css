@@ -344,3 +344,43 @@
   width: 40px;
   height: 40px;
 }
+.fixed-mobile-buttons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 0;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  z-index: 999;
+}
+
+.fixed-mobile-buttons a {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+}
+
+.whatsapp-btn {
+  background-color: #25D366;
+}
+
+.call-btn {
+  background-color: #ff4d4d;
+}
+
+.fixed-mobile-buttons i {
+  font-size: 18px;
+  vertical-align: middle;
+}
+@media (max-width: 768px) {
+  .whatsapp-float {
+    display: none !important;
+  }
+}

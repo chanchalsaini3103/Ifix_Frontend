@@ -60,7 +60,7 @@ function Login() {
 
   return (
     <>
-      <Navbar />
+     
       <div className="login-page-wrapper">
         <div className="login-container">
           <div className="login-left">

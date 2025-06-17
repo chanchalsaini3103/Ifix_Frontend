@@ -5,7 +5,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-text">
-        &copy; {new Date().getFullYear()} Infocus IT Solution Pvt Ltd. All rights reserved.
+        &copy; {new Date().getFullYear()} All rights reserved.
       </div>
     </footer>
   );

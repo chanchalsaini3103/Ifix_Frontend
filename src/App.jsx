@@ -21,6 +21,7 @@ import AdminEditModels from "./components/AdminEditModels";
 import DeviceBrandSelector from "./components/DeviceBrandSelector";
 import DeviceModelSelector from "./components/DeviceModelSelector";
 import DeviceIssueSelector from "./components/DeviceIssueSelector";
+import Navbar from "./components/Navbar";
 
 function BrandPage() {
   const { brandName } = useParams();
@@ -34,7 +35,9 @@ function App() {
       <div className="d-flex flex-column min-vh-100">
         {/* 👇 Main content area grows to fill screen */}
         <main className="flex-grow-1">
+          <Navbar />
           <Routes>
+            
             <Route path="/" element={<HeroPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<PhoneRegister />} />

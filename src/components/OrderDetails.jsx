@@ -82,7 +82,10 @@ function OrderDetails() {
 
     try {
       setLoading(true);
-      await axios.post(`${BASE_URL}/api/repair/submit`, order);
+      await axios.post(`${BASE_URL}/api/repair/submit`, order, {
+  withCredentials: true
+});
+
       localStorage.removeItem("pendingOrder");
 
       Swal.fire({

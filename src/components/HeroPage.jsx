@@ -84,7 +84,7 @@ function HeroPage() {
   return (
     <>
       <Navbar />
-      <div className="hero-form-section py-1 bg-dark text-white">
+      <div className="hero-form-section py-5 bg-dark text-white">
         <div className="container d-flex flex-column flex-lg-row align-items-center justify-content-between">
           <div className="text-section mb-4 mb-lg-0 pe-lg-5">
             <h1 className="fw-bold display-5">
@@ -157,7 +157,7 @@ function HeroPage() {
 </div>
 {/* Floating WhatsApp Button */}
 <a
-  href="https://wa.me/918888668186"
+  href="https://wa.me/917821820239"
   target="_blank"
   rel="noopener noreferrer"
   className="whatsapp-float"
@@ -189,6 +189,16 @@ function HeroPage() {
 
       <MobileRepair />
       <WhyUs />
+      {/* Fixed Call & WhatsApp Buttons on Mobile */}
+<div className="fixed-mobile-buttons d-md-none">
+  <a href="https://wa.me/917821820239" className="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+    <i className="bi bi-whatsapp me-1"></i> WhatsApp
+  </a>
+  <a href="tel:+917821820239" className="call-btn">
+    <i className="bi bi-telephone me-1"></i> Call
+  </a>
+</div>
+
     </>
   );
 }
