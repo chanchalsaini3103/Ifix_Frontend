@@ -1,27 +1,68 @@
-/* === Search Section === */
-.search-wrapper {
- max-width: 500px;
-    width: 100%;
-    margin-right: 30px;
-}
+/* =========================
+   Navbar Wrapper
+========================= */
+/* Navbar Wrapper */
 .navbar-wrapper {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1055; /* High enough to stay above content */
+  z-index: 1055;
 }
+
+/* Smooth slide animation */
+.slide-down {
+  animation: slideDown 0.25s ease-out forwards;
+}
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Hide animation flicker on small screens */
+@media (max-width: 767.98px) {
+  .slide-down {
+    animation: none !important;
+  }
+}
+
+/* Navbar hover underline */
+.navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease-in-out;
+}
+.navbar .nav-link:hover::after {
+  transform: scaleX(1);
+}
+
 
 /* Add top padding to content so it doesn't hide under navbar */
 .hero-form-section {
   padding-top: 140px; /* Adjust based on total navbar height */
 }
 
-
-/* Add spacing between navbar links */
-.navbar-nav .nav-item {
-  margin: 0 10px; /* Adjust spacing as needed */
+/* =========================
+   Search Section
+========================= */
+.search-wrapper {
+  max-width: 500px;
+  width: 100%;
+  margin-right: 30px;
+  display: flex;
 }
-
 
 .search-wrapper input {
   flex: 1;
@@ -38,7 +79,60 @@
   border-radius: 5px;
 }
 
-/* === Toggler Button === */
+/* =========================
+   Navbar Links & Hover Effect
+========================= */
+.navbar-nav .nav-item {
+  margin: 0 10px; /* spacing between links */
+}
+
+/* Reset underline styles */
+.navbar .nav-link,
+.navbar .dropdown-toggle {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  position: relative;
+}
+
+.nav-underline {
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Hover underline effect */
+.navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease-in-out;
+}
+
+.navbar .nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Dropdown items (no underline) */
+.dropdown-menu .dropdown-item {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  position: relative;
+}
+
+.dropdown-menu .dropdown-item::after {
+  content: none;
+}
+
+/* =========================
+   Toggler Button
+========================= */
 .navbar-toggler {
   background-color: black !important;
   border: none !important;
@@ -48,7 +142,9 @@
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
-/* === Responsive Design === */
+/* =========================
+   Responsive Design
+========================= */
 @media (max-width: 768px) {
   .top-white-bar {
     flex-direction: row;
@@ -61,10 +157,8 @@
   }
 
   .search-wrapper {
-    flex-direction: row;
     justify-content: center;
     padding: 10px 15px;
-    display: flex;
   }
 
   .search-wrapper input {
@@ -77,69 +171,45 @@
     padding: 10px;
   }
 
-  .navbar-nav .nav-link,
-  .navbar-nav .dropdown-item {
-    width: 100%;
-    padding: 10px;
-    padding-left: 10px;
-    margin-left: 10px;
-  }
-
   .phone-info {
     font-size: 16px;
-    white-space: nowrap;        /* Ensures phone stays in one line */
+    white-space: nowrap;
     display: flex;
     align-items: center;
   }
 }
 
-@media (min-width: 769px) {
-  .search-wrapper {
-    margin-top: 0;
-    justify-content: flex-end;
-    max-width: 500px; /* 🔼 Wider for laptop screens */
-    width: 100%;
-  }
-
-  .search-wrapper input {
-    font-size: 15px;
-    height: 38px;
-  }
-}
-/* For laptop and desktop */
 @media (min-width: 769px) {
   .top-bar-right {
     display: flex;
     align-items: center;
-    gap: 20px; /* spacing between search and phone */
+    gap: 20px;
   }
 
   .search-wrapper {
-    flex: 1;
-    max-width: 600px;   /* Increased from 500px */
-    width: 100%;
-    display: flex;
+    max-width: 600px;
+    margin-top: 0;
+    justify-content: flex-end;
   }
 
   .search-wrapper input {
-    flex: 1;
     font-size: 16px;
     height: 40px;
     width: 300px;
-    border: grey 1px solid;
+    border: 1px solid grey;
     border-radius: 30px;
   }
 
   .search-wrapper button {
     height: 40px;
     padding: 0 20px;
-    border: red 1px solid;
+    border: 1px solid red;
     border-radius: 30px;
   }
 
   .phone-info {
-    white-space: nowrap;
     font-size: 16px;
+    white-space: nowrap;
     display: flex;
     align-items: center;
   }

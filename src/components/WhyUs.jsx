@@ -49,7 +49,7 @@ function WhyUs() {
       <div className="chat-cta-section text-center py-5">
         <h4>Need help? Chat with us now</h4>
         <a
-          href="https://wa.me/7821820239"
+          href="https://wa.me/918888668186"
           target="_blank"
           rel="noopener noreferrer"
           className="btn btn-success mt-2"
@@ -105,7 +105,7 @@ function WhyUs() {
             <div className="col-md-4 mb-3">
               <h6>Contact Us</h6>
               <p>📍 Pimpri, Pune</p>
-              <p>📞 +91 7821820239</p>
+              <p>📞 +91 8888668186</p>
               <p>✉️ support@ifixmobiles.in</p>
               <a href="https://www.instagram.com/ifix_smartphone_repairs" target="_blank" rel="noopener noreferrer" className="text-white text-decoration-underline">📸 Instagram</a>
             </div>

@@ -13,3 +13,4 @@ export const verifyOtp = (phone, otp) => {
 export const registerUser = (userData) => {
   return axios.post(`${BASE}/register`, userData);
 };
+    

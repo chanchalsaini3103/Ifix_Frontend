@@ -5,9 +5,7 @@ import "../styles/Navbar.css";
 import Swal from "sweetalert2";
 import {
   FaHome,
-  FaTools,
   FaEnvelopeOpenText,
-  FaClipboardList,
   FaPhoneAlt,
   FaUserPlus,
   FaSignInAlt,
@@ -84,11 +82,20 @@ function Navbar() {
       {/* White Top Bar */}
       <div className="top-white-bar bg-white shadow-sm py-2 px-3 px-md-4 d-flex flex-column flex-md-row align-items-center justify-content-between">
         <div className="d-flex w-100 justify-content-between align-items-center">
-          <div className="d-flex align-items-center gap-2 logo-text" onClick={() => navigate("/")}>
+          <div
+            className="d-flex align-items-center gap-2 logo-text"
+            onClick={() => navigate("/")}
+          >
             <img src="/images/logo.png" alt="Logo" height="40" />
-            <span className="text-dark fw-bold fs-5 mb-0">iFix Mobile Repair</span>
+            <span className="text-dark fw-bold fs-5 mb-0">
+              iFix Mobile Repair
+            </span>
           </div>
-          <button className="navbar-toggler d-md-none border-0" type="button" onClick={() => setIsCollapsed(!isCollapsed)}>
+          <button
+            className="navbar-toggler d-md-none border-0"
+            type="button"
+            onClick={() => setIsCollapsed(!isCollapsed)}
+          >
             <span className="navbar-toggler-icon" />
           </button>
         </div>
@@ -104,10 +111,15 @@ function Navbar() {
               onChange={(e) => setSearchTerm(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSearch()}
             />
-            <button onClick={handleSearch} className="btn btn-sm btn-danger ms-1">Search</button>
+            <button
+              onClick={handleSearch}
+              className="btn btn-sm btn-danger ms-1"
+            >
+              Search
+            </button>
           </div>
           <span className="text-dark fw-semibold ms-3 phone-info">
-            📞 +91 7821820239
+            📞 +91 8888668186
           </span>
         </div>
       </div>
@@ -122,21 +134,39 @@ function Navbar() {
           onChange={(e) => setSearchTerm(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleSearch()}
         />
-        <button onClick={handleSearch} className="btn btn-sm btn-danger ms-2">Search</button>
+        <button onClick={handleSearch} className="btn btn-sm btn-danger ms-2">
+          Search
+        </button>
       </div>
 
       {/* Black Main Navbar */}
-      <nav className={`navbar navbar-expand-lg bg-black shadow-sm ${slideDown ? "slide-down" : ""}`}>
+      <nav
+        className={`navbar navbar-expand-lg bg-black shadow-sm ${
+          slideDown ? "slide-down" : ""
+        } ${
+          isCollapsed ? "d-none d-md-block" : "d-block d-md-block"
+        }`}
+      >
         <div className="container-fluid">
-          <div className={`collapse navbar-collapse ${isCollapsed ? "" : "show"}`}>
+          <div
+            className={`collapse navbar-collapse ${isCollapsed ? "" : "show"}`}
+          >
             <ul className="navbar-nav mx-auto text-center">
               <li className="nav-item">
-                <Link className="nav-link text-white nav-underline" to="/">
+                <Link
+                  className="nav-link text-white"
+                  to="/"
+                  onClick={() => setIsCollapsed(true)}
+                >
                   <FaHome className="me-1" /> Home
                 </Link>
               </li>
 
-              <li className="nav-item dropdown custom-dropdown" onClick={() => setShowBrands(!showBrands)}>
+              {/* Brands dropdown */}
+              <li
+                className="nav-item dropdown custom-dropdown"
+                onClick={() => setShowBrands(!showBrands)}
+              >
                 <span className="nav-link text-white dropdown-toggle">
                   Top Brands <FaChevronDown className="ms-1" />
                 </span>
@@ -144,7 +174,11 @@ function Navbar() {
                   <ul className="dropdown-menu show">
                     {brands.map((brand, index) => (
                       <li key={index}>
-                        <Link className="dropdown-item" to={`/services/mobile-repair/${brand.path}`}>
+                        <Link
+                          className="dropdown-item"
+                          to={`/services/mobile-repair/${brand.path}`}
+                          onClick={() => setIsCollapsed(true)}
+                        >
                           {brand.name}
                         </Link>
                       </li>
@@ -153,7 +187,11 @@ function Navbar() {
                 )}
               </li>
 
-              <li className="nav-item dropdown custom-dropdown" onClick={() => setShowServices(!showServices)}>
+              {/* Services dropdown */}
+              <li
+                className="nav-item dropdown custom-dropdown"
+                onClick={() => setShowServices(!showServices)}
+              >
                 <span className="nav-link text-white dropdown-toggle">
                   Repair Service <FaChevronDown className="ms-1" />
                 </span>
@@ -161,7 +199,13 @@ function Navbar() {
                   <ul className="dropdown-menu show">
                     {services.map((service, index) => (
                       <li key={index}>
-                        <Link className="dropdown-item" to={`/services/${service.toLowerCase().replace(/ /g, "-")}`}>
+                        <Link
+                          className="dropdown-item"
+                          to={`/services/${service
+                            .toLowerCase()
+                            .replace(/ /g, "-")}`}
+                          onClick={() => setIsCollapsed(true)}
+                        >
                           {service}
                         </Link>
                       </li>
@@ -172,14 +216,22 @@ function Navbar() {
 
               {isLoggedIn && (
                 <li className="nav-item">
-                  <Link className="nav-link text-white nav-underline" to="/my-requests">
+                  <Link
+                    className="nav-link text-white"
+                    to="/my-requests"
+                    onClick={() => setIsCollapsed(true)}
+                  >
                     <FaEnvelopeOpenText className="me-1" /> My Requests
                   </Link>
                 </li>
               )}
 
               <li className="nav-item">
-                <Link className="nav-link text-white nav-underline" to="/contact">
+                <Link
+                  className="nav-link text-white"
+                  to="/contact"
+                  onClick={() => setIsCollapsed(true)}
+                >
                   <FaPhoneAlt className="me-1" /> Contact
                 </Link>
               </li>
@@ -187,19 +239,33 @@ function Navbar() {
               {!isLoggedIn ? (
                 <>
                   <li className="nav-item">
-                    <Link className="nav-link text-white nav-underline" to="/register">
+                    <Link
+                      className="nav-link text-white"
+                      to="/register"
+                      onClick={() => setIsCollapsed(true)}
+                    >
                       <FaUserPlus className="me-1" /> Register
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link to="/login" className="nav-link text-white nav-underline">
+                    <Link
+                      to="/login"
+                      className="nav-link text-white"
+                      onClick={() => setIsCollapsed(true)}
+                    >
                       <FaSignInAlt className="me-1" /> Login
                     </Link>
                   </li>
                 </>
               ) : (
                 <li className="nav-item">
-                  <button className="btn btn-outline-light ms-2" onClick={handleLogout}>
+                  <button
+                    className="btn btn-outline-light ms-2"
+                    onClick={() => {
+                      setIsCollapsed(true);
+                      handleLogout();
+                    }}
+                  >
                     <FaSignOutAlt className="me-1" /> Logout
                   </button>
                 </li>

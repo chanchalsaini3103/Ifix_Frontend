@@ -1,105 +1,365 @@
-/* Shared wrapper for all auth pages */
-.auth-wrapper,
+/* =========================
+   Auth.css (Login + Register)
+   No page/inner scrolling
+   ========================= */
+
+/* --- Set this to your actual fixed/sticky navbar height --- */
+:root {
+  --nav-h: 72px; /* desktop navbar height */
+}
+@media (max-width: 991.98px) {
+  :root { --nav-h: 64px; }
+}
+@media (max-width: 767.98px) {
+  :root { --nav-h: 56px; }
+}
+
+/* ===== Page Frame (no scroll) ===== */
+html, body {
+  height: 100%;
+  overflow: auto;            /* no page scroll */
+}
 .login-page-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
-  background: #fff;
-}
+  height: 100vh;
+  padding-top: 0px;
+  margin: 0px;
 
-/* Container for both login and register */
-.auth-container,
-.login-container {
-  margin-top: 50px;
   display: flex;
-  width: 900px;
-  background: #fff;
-  border-radius: 8px;
+  align-items: center;
+  position: relative;
+
+  /* absolutely no page scrolling */
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+  background: radial-gradient(1200px 600px at 10% -10%, #1b1f29 0%, #0e1117 40%, #0b0d12 100%);
+  color: #0c0d0e;
 }
 
-/* Left panel with image and welcome text */
-.auth-left,
-.login-left {
-  flex: 1;
+/* ===== Subtle animated background blobs ===== */
+.bg-blob {
+  position: absolute;
+  filter: blur(50px);
+  opacity: 0.35;
+  z-index: 0;
+  animation: float 9s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+.blob-1 {
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  top: -120px; left: -120px;
+}
+.blob-2 {
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  bottom: -160px; right: -160px;
+  animation-delay: 0.8s;
+}
+@keyframes float {
+  0%   { transform: translateY(0) translateX(0) scale(1); }
+  100% { transform: translateY(-10px) translateX(10px) scale(1.02); }
+}
+
+/* ===== Card layout ===== */
+.login-card {
   position: relative;
-  background-color: #000;
-  color: white;
+  z-index: 1;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  background: transparent;
+  width: 100%;
+  max-width: 900px;
+
+  /* keep within one screen */
+  max-height: 85vh;
+  margin: 0 auto;
+
+  /* avoid inner scrollbars */
+  overflow: hidden;
+}
+
+/* Glassmorphism */
+.glass-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+}
+
+/* Left image with overlay content */
+.login-left {
+  position: relative;
+  height: 100%;
+  min-height: 500px;
+}
+.object-fit-cover { object-fit: cover; }
+
+.welcome-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 30px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.0) 20%, rgba(0,0,0,0.55) 100%);
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 2rem;
+  justify-content: end;
 }
 
-.auth-left img,
-.login-left img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.5;
-}
-
-/* Welcome text on image overlay */
-.welcome-text {
-  position: relative;
-  z-index: 2;
-}
-
-/* Right panel for form */
-.auth-right,
+/* Right side */
+/* Right side */
 .login-right {
-  flex: 1;
-  padding: 2rem;
-  background-color: #fff;
+  background: #ffffff;
+  height: 100%;          /* match card height */
+  display: flex;
+  flex-direction: column;
 }
 
-/* Forgot password style */
-.link-button {
-  background: none;
+.login-right .card-body {
+  padding: 12px 20px;   /* reduced vertical padding */
+  overflow: hidden;     
+}
+
+
+
+/* Top brand block */
+.login-logo { height: 60px; }
+.login-title { 
+  margin: 0; 
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+/* Elevated inputs */
+.input-elevated .input-group-text,
+.input-elevated .form-control {
+  border: 1px solid rgba(0,0,0,0.08);
+}
+.input-elevated .form-control {
+  height: 50px;
+  font-size: 1rem;
+}
+.input-elevated .form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 65, 108, 0.15);
+  border-color: #ff416c;
+}
+.input-elevated .input-group-text { 
+  background: #f8f9fa; 
+  padding: 0 15px;
+}
+.btn-eye { 
+  cursor: pointer; 
+  background: #f8f9fa; 
+}
+
+/* Gradient Primary Button */
+.btn-gradient {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: #fff;
   border: none;
-  color: #17a2b8;
-  cursor: pointer;
-  padding: 0;
+  height: 50px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 10px 20px rgba(255, 65, 108, 0.25);
+  transition: transform 0.12s ease, box-shadow 0.2s ease;
+}
+.btn-gradient:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(255, 65, 108, 0.35);
+}
+.btn-gradient:disabled { opacity: 0.85; filter: saturate(0.9); }
+
+/* Links */
+.link-underline-none { text-decoration: none; }
+
+/* Form labels */
+.form-label {
+  font-weight: 500;
+  margin-bottom: 8px;
 }
 
-.link-button:hover {
-  text-decoration: underline;
+/* ===== Animations ===== */
+.slide-in-left { animation: slideInLeft 380ms ease-out both; }
+.fade-in-up   { animation: fadeInUp   380ms ease-out both; }
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive design for mobile */
-@media (max-width: 768px) {
-  .auth-container,
-  .login-container {
-    margin-top: 50px;
-    flex-direction: column;
-    width: 100%;
-    border-radius: 0;
-    box-shadow: none;
+/* ===== Responsiveness ===== */
+@media (max-width: 991.98px) {
+  .login-card { 
+    max-width: 650px;
+    border-radius: 18px; 
   }
+  .card-body { padding: 25px !important; }
+  
+  .login-logo { height: 50px; }
+  .login-title { font-size: 1.5rem; }
+}
 
-  .auth-left,
-  .login-left {
-    height: 200px;
-    padding: 1rem;
+@media (max-width: 767.98px) {
+  .login-page-wrapper {
+    padding: 0 15px;
   }
-
-  .auth-left img,
-  .login-left img {
-    opacity: 0.3;
+  
+  .login-card { 
+    max-width: 100%;
+    border-radius: 16px; 
   }
-
-  .auth-right,
-  .login-right {
-    padding: 1.5rem;
+  
+  .login-title { font-size: 1.4rem; }
+  .login-logo  { height: 45px; }
+  
+  .input-elevated .form-control { 
+    height: 48px;
   }
+  
+  .btn-gradient { 
+    height: 48px; 
+    font-size: 1rem;
+  }
+  
+  .login-right .card-body {
+    padding: 20px !important;
+  }
+}
 
-  .welcome-text {
-    font-size: 14px;
-    text-align: center;
+/* For very small screens */
+@media (max-width: 375px) {
+  .login-right .card-body {
+    padding: 18px !important;
+  }
+  
+  .input-elevated .form-control { 
+    height: 46px;
+  }
+  
+  .btn-gradient { 
+    height: 46px; 
+  }
+  
+  .login-logo { height: 40px; }
+  .login-title { font-size: 1.3rem; }
+}
+
+/* Safety overrides */
+.login-page-wrapper .h-100,
+.login-page-wrapper .container.h-100,
+.login-page-wrapper .row.h-100 {
+  height: auto !important;
+}/* ===== Register Specific Styles ===== */
+.stepper {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 6px;
+  flex-wrap: nowrap;
+}
+.stepper .step {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #9aa0a6;
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+.stepper .step span {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #d0d4da;
+  background: #fff;
+  line-height: 1;
+  font-size: 0.8rem;
+}
+.stepper .step.active { color: #ff416c; }
+.stepper .step.active span {
+  border-color: #ff416c;
+  background: #ffe6ed;
+}
+
+/* Make OTP field look tidy */
+input[name="otp"] {
+  letter-spacing: 4px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Trust row */
+.trust-row span { white-space: nowrap; }
+
+/* Form text adjustments */
+.form-text {
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+/* Alert styling */
+.alert {
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments for register form */
+@media (max-width: 991.98px) {
+  .stepper .step {
+    font-size: 0.85rem;
+  }
+  .stepper .step span {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .stepper .step {
+    font-size: 0.82rem;
+  }
+  
+  input[name="otp"] {
+    font-size: 1rem;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 375px) {
+  .stepper .step {
+    font-size: 0.78rem;
+    gap: 4px;
+  }
+  .stepper .step span {
+    width: 20px;
+    height: 20px;
+    font-size: 0.7rem;
+  }
+}
+
+/* Register-specific card tweaks */
+.login-card-register {
+  max-height: 85vh; /* Slightly taller than login to accommodate more form fields */
+}
+
+@media (max-width: 991.98px) {
+  .login-card-register {
+    max-height: 90vh;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .login-card-register {
+    max-height: 95vh;
   }
 }
