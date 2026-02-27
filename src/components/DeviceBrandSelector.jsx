@@ -20,7 +20,7 @@ const brandImages = {
   "MacBook Air": "/images/brands/macbook-air.webp",
   "MacBook Pro": "/images/brands/macbook-pro.webp",
 
-  // ✅ Add these:
+  
   "iPad": "/images/ipads/ipad.jpg",
   "iPad Mini": "/images/ipads/ipad-mini.jpg",
   "iPad Air": "/images/ipads/ipad-air.jpg",

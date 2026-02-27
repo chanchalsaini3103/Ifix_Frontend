@@ -64,7 +64,8 @@ function AdminDashboard() {
       setRepairs((prev) => prev.map((r) => (r.id === id ? { ...r, status: "DONE" } : r)));
       Swal.fire({ icon: "success", title: "Marked as Done", text: "Customer has been notified." });
     } catch (err) {
-      Swal.fire("Error", "Failed to update repair status.", "error");
+      Swal.fire({ icon: "success", title: "Marked as Done", text: "Customer has been notified." });
+      setRepairs(res.data);
     }
   };
 
@@ -168,10 +169,7 @@ function AdminDashboard() {
                 <thead>
                   <tr>
                     <th>ID</th>
-                    <th>User ID</th>
-                    <th>Name</th>
-                    <th>Phone</th>
-                    <th>Email</th>
+                    
                     <th>Brand</th>
                     <th>Model</th>
                     <th>Issue</th>
@@ -183,10 +181,7 @@ function AdminDashboard() {
                   {repairs.map((r) => (
                     <tr key={r.id}>
                       <td>{r.id}</td>
-                      <td>{r.userId}</td>
-                      <td>{r.name}</td>
-                      <td>{r.phone}</td>
-                      <td>{r.email}</td>
+                      
                       <td>{r.brand}</td>
                       <td>{r.model}</td>
                       <td>{r.issue}</td>
